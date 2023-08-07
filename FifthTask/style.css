@@ -1,0 +1,52 @@
+body {
+    background: linear-gradient(90deg ,rgba(37,32,124,1) 0%,rgba(30,164,180,1) 54%,rgba(0,184,222,1) 100%);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+section{
+    width: 350px;
+    height: 175px;
+    margin-bottom: 20px;
+    background: rgb(34,193,195);
+    border-radius: 15px;
+    border: 1px solid white;
+
+}
+p{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+    border-bottom: 1px solid white;
+}
+
+input[type="submit"] {
+    width: 15%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    width: 15%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #4CAF50;
+    cursor: pointer;
+}
+input[type="radio"]:hover {
+    background-color: black;
+}
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+
+

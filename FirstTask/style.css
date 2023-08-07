@@ -1,0 +1,65 @@
+body {
+    background:#f2f2f2 ;
+    margin: 0;
+}
+
+.header{
+    margin-bottom: 20px;
+    background: gray;
+}
+
+.header>header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header h1{
+    margin-bottom: -8px;
+}
+
+.myImage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.myImage>img{
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+}
+
+aside{
+    padding: 25px;
+    width: 30%;
+    float: left;
+    overflow: visible;
+    height: 100%;
+    background-color: #f2f2f2;
+    box-sizing: border-box;
+}
+
+main{
+    width: auto;
+    padding: 25px;
+    margin-left: 30%;
+    height: 100%;
+    background: darkgray;
+}
+
+.tittle{
+    font-size:25px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+a {
+    color: brown;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #e74c3c;
+}

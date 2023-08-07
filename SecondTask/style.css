@@ -1,0 +1,34 @@
+body {
+    background: gray ;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+section{
+    width: 250px;
+    height: 130px;
+    margin-bottom: 10px;
+    background: darkgray;
+    border-radius: 15px;
+    border: 1px solid white;
+
+}
+p{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+    border-bottom: 1px solid white;
+}
+
+input[type="submit"] {
+    width: 15%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
