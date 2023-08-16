@@ -1,11 +1,11 @@
 $(document).ready(function() {
     const display = $('.calculator_display');
+    let equation = '';
     let currentInput = '';
     let prevInput = '';
     let operator = null;
 
-    const divisionErrorDialog = $('<div title="Error">Division by zero is not allowed.</div>')
-        .dialog({
+    const divisionErrorDialog = $('<div title="Error">Division by zero is not allowed.</div>').dialog({
             autoOpen: false,
             modal: true,
             buttons: {
@@ -15,8 +15,7 @@ $(document).ready(function() {
             }
         });
 
-    const enterNumberDialog = $('<div title="Error">Please enter the next number.</div>')
-        .dialog({
+    const enterNumberDialog = $('<div title="Error">Please enter the next number.</div>').dialog({
             autoOpen: false,
             modal: true,
             buttons: {
@@ -30,17 +29,24 @@ $(document).ready(function() {
         const button = $(event.target);
         const action = button.data('action');
         const buttonValue = button.text();
+
         if (!action) {
             currentInput += buttonValue;
+            equation += buttonValue;
         } else if (action === 'decimal') {
             if (!currentInput.includes('.')) {
                 currentInput += '.';
+                equation += '.';
             }
         } else if (action === 'clear') {
             currentInput = '';
             prevInput = '';
             operator = null;
+            equation = '';
         } else if (action === 'add' || action === 'subtract' || action === 'multiply' || action === 'divide') {
+            if (equation !== '') {
+                equation += ' ' + buttonValue + ' ';
+            }
             prevInput = currentInput;
             currentInput = '';
             operator = action;
@@ -73,6 +79,7 @@ $(document).ready(function() {
                             result = 0;
                     }
 
+                    equation =  result;
                     currentInput = result.toString();
                     prevInput = '';
                     operator = null;
@@ -82,7 +89,7 @@ $(document).ready(function() {
                 }
             }
         }
-        display.text(currentInput);
+        display.text(equation);
     }
 
     const buttons = $('.calculator__keys button');
