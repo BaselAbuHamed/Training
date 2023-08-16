@@ -31,8 +31,8 @@ function generateChoices() {
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Quiz Maker</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../SeventhTask/script.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="../SeventhTask/style.css" type="text/css"/>
+    <script src="/script.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/style.css" type="text/css"/>
 </head>
 <body>
 <?php include("classes/header.php"); ?>
