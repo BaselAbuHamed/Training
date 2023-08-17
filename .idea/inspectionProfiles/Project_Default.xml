@@ -5,6 +5,7 @@
       <Languages>
         <language minSize="30" name="Style Sheets" />
         <language minSize="246" name="JavaScript" />
+        <language minSize="47" name="PHP" />
       </Languages>
     </inspection_tool>
     <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">

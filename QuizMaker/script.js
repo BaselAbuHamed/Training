@@ -2,7 +2,8 @@ $(document).ready(function() {
     $('.add').on('click', addChoice);
     $('.remove').on('click', removeChoice);
     setupValidation();
-
+    $('#defaultOpen').click();
+    // document.getElementById("defaultOpen").click();
 });
 
 /*create new input to add new option*/
@@ -145,25 +146,15 @@ function validateForm() {
 }
 
 function openQuestions(event, question) {
+    // Hide all elements with class="tabcontent"
+    $(".tabcontent").hide();
 
-    // Declare all variables
-    var i, tabcontent, tablinks;
-
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
+    // Remove the class "active" from all elements with class="tablinks"
+    $(".tablinks").removeClass("active");
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(question).style.display = "block";
-    event.currentTarget.className += " active";
+    $("#" + question).show();
+    $(event.currentTarget).addClass("active");
 }
 
 // Add this function to handle the delete action

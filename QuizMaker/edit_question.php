@@ -88,26 +88,22 @@ function getCorrectAnswerValue($pdo, $questionID, $correctAnswerID) {
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <script src="/script.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="/style.css" type="text/css" />
+    <script src="script.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 <body>
 <?php include("classes/header.php"); ?>
 <div class="container-edit">
     <h1>Edit Question</h1>
-
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"] . "?questionID=" . $questionID); ?>" id="updateQuestionForm" method="post">
         <input type="hidden" name="questionID" value="<?php echo $questionID; ?>" />
-
         <label for="question">Question:</label>
         <input type="text" name="question" id="question" value="<?php echo htmlspecialchars($questionDetails['question']); ?>" />
         <span class="error" id="questionError"></span>
-
         <label for="correctAnswer">Correct Answer:</label>
         <input type="text" name="correctAnswer" id="<?php echo $questionDetails['correctAnswer'] ?>"
                value="<?php echo $correctAnswerIndex !== null ? $correctAnswerIndex+1 : ''; ?>"/>
         <span class="error" id="correctAnswerError"></span>
-
         <label for="field">Field:</label>
         <select name="field" id="field" required>
             <option value="mathematics" <?php if ($questionDetails['field'] === 'mathematics') echo 'selected'; ?>>Mathematics</option>
@@ -116,7 +112,6 @@ function getCorrectAnswerValue($pdo, $questionID, $correctAnswerID) {
             <option value="chemistry" <?php if ($questionDetails['field'] === 'chemistry') echo 'selected'; ?>>Chemistry</option>
             <option value="technology" <?php if ($questionDetails['field'] === 'technology') echo 'selected'; ?>>Technology</option>
         </select>
-
         <label>Choices:</label>
         <div class="choices" id="choices-container">
         <?php foreach ($choices as $index => $choice) : ?>
@@ -129,7 +124,6 @@ function getCorrectAnswerValue($pdo, $questionID, $correctAnswerID) {
                 </div>
         <?php endforeach; ?>
         </div>
-
         <div class="controls">
             <button class="add" data-action="add">Add Choice</button>
             <button class="remove" data-action="remove">Remove Choice</button>

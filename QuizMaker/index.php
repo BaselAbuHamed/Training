@@ -4,8 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Quiz Maker</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/script.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="/style.css" type="text/css"/>
+    <script src="script.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
 </head>
 <body>
     <?php include("classes/header.php"); ?>
@@ -18,12 +18,6 @@
                 <span class="error" id="questionError"></span>
             </div>
             <div>
-                <label for="correctAnswer">Correct Answer:</label>
-                <input type="text" name="correctAnswer" id="correctAnswer" placeholder="Enter the correct answer number"
-                    autocomplete="off" />
-                <span class="error" id="correctAnswerError"></span>
-            </div>
-            <div>
                 <label>Field:</label>
                 <select name="where" id="fieldSelect">
                     <option value="" selected>Choose a field</option>
@@ -34,6 +28,12 @@
                     <option value="technology">Technology</option>
                 </select>
                 <span class="error" id="fieldError"></span>
+            </div>
+            <div>
+                <label for="correctAnswer">Correct Answer:</label>
+                <input type="text" name="correctAnswer" id="correctAnswer" placeholder="Enter the correct answer number"
+                       autocomplete="off" />
+                <span class="error" id="correctAnswerError"></span>
             </div>
             <div class="choices" id="choices-container">
                 <label>Choices:</label>

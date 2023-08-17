@@ -19,17 +19,20 @@ function getQuestionsByField($pdo, $field) {
  for deleting the data from the database*/
 function displayQuestions($pdo, $questions) {
 
+    $index=1;
     echo '<table>';
-    echo '<tr><th>Question ID</th><th>Question</th><th>Correct Answer</th><th></th><th></th></tr>';
+    echo '<tr><th>Question Number</th><th>Question</th><th>Correct Answer</th><th></th><th></th></tr>';
     foreach ($questions as $row) {
         echo '<tr id="questionRow_' . $row['questionID'] . '">';
         $questionID = isset($row['questionID']) ? $row['questionID'] : 'N/A';
-        echo '<td>' . htmlspecialchars($questionID) . '</td>';
+        echo '<td>' . $index . '</td>';
         echo '<td>' . htmlspecialchars($row['question']) . '</td>';
         echo '<td>' . getCorrectAnswer($pdo, $row['correctAnswer']) . '</td>';
+        echo '<td><a id="showQuestion" href="view_question.php?questionID=' . htmlspecialchars($questionID) . '">View</a></td>';
         echo '<td><a id="updateQuestion" href="edit_question.php?questionID=' . htmlspecialchars($questionID) . '">Edit</a></td>';
         echo '<td><button class="deleteQuestion" onclick="deleteQuestion(' . htmlspecialchars($questionID) . ')">Delete</button></td>';
         echo '</tr>';
+        $index++;
     }
     echo '</table>';
 }
@@ -64,14 +67,14 @@ function getAllQuestions($pdo) {
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <script src="/script.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="/style.css" type="text/css" />
+    <script src="script.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 <body>
 <?php include("classes/header.php"); ?>
     <div class="tab">
         <div class="containerTabs">
-            <button class="tablinks" onclick="openQuestions(event, 'mathematics')">Mathematics</button>
+            <button class="tablinks" onclick="openQuestions(event, 'mathematics')"  id="defaultOpen">Mathematics</button>
             <button class="tablinks" onclick="openQuestions(event, 'physics')">Physics</button>
             <button class="tablinks" onclick="openQuestions(event, 'biology')">Biology</button>
             <button class="tablinks" onclick="openQuestions(event, 'technology')">Technology</button>
