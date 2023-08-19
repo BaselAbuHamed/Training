@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Quiz Maker</title>
@@ -9,8 +9,25 @@
 </head>
 <body>
     <?php include("classes/header.php"); ?>
+
     <div class="container">
-        <form method="post" id="addQuestionForm" onsubmit="return validateForm()">
+        <noscript>
+            <div class="error-message">
+                <?php
+                if (isset($_GET['error_message'])) {
+                    echo htmlspecialchars($_GET['error_message']);
+                }
+                ?>
+            </div>
+            <div class="success-message">
+                <?php
+                if (isset($_GET['success_message'])) {
+                    echo htmlspecialchars($_GET['success_message']);
+                }
+                ?>
+            </div>
+        </noscript>
+        <form method="post" action="add_question.php" id="addQuestionForm"  onsubmit="return validateForm()">
             <div>
                 <label for="question">Question:</label>
                 <input type="text" name="question" id="question" placeholder="Enter the question text"
@@ -53,7 +70,7 @@
                 <button class="remove" data-action="remove">Remove Choice</button>
             </div>
             <div class="submit">
-                <button id="submitButton" class="submit" onclick="submitForm()">Submit</button>
+                <button id="submitButton" class="submit" >Submit</button>
             </div>
         </form>
         <div class="redirect-button">

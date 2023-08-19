@@ -2,9 +2,32 @@ $(document).ready(function() {
     $('.add').on('click', addChoice);
     $('.remove').on('click', removeChoice);
     setupValidation();
-    $('#defaultOpen').click();
+    // Define an array of tab names
+    const tabNames = ['mathematics', 'physics', 'biology', 'technology', 'chemistry', 'allQuestion'];
+
+    // Get the container for the tab buttons
+    const container = $('.containerTabs');
+
+    // Create and append tab buttons
+    for (const tabName of tabNames) {
+        const button = $('<button class="tablinks"></button>')
+            .text(tabName.charAt(0).toUpperCase() + tabName.slice(1))
+            .on('click', function(event) {
+                openQuestions(event, tabName);
+            });
+        container.append(button);
+    }
+    // Set the first tab as active
+    $('.tablinks:first').attr('id', 'defaultOpen');
+
+    const delButton = $('.delete_button');
+    const del=$('<button class="deleteQuestion" onclick="deleteQuestion(\' . htmlspecialchars($questionID) . \')">Delete</button>');
+    delButton.append(del);
+
+    // $('#defaultOpen').click();
     // document.getElementById("defaultOpen").click();
 });
+
 
 /*create new input to add new option*/
 function addChoice(event) {
@@ -146,11 +169,11 @@ function validateForm() {
 }
 
 function openQuestions(event, question) {
-    // Hide all elements with class="tabcontent"
-    $(".tabcontent").hide();
+    // Hide all elements with class="tabContent"
+    $(".tabContent").hide();
 
-    // Remove the class "active" from all elements with class="tablinks"
-    $(".tablinks").removeClass("active");
+    // Remove the class "active" from all elements with class="tabLinks"
+    $(".tabLinks").removeClass("active");
 
     // Show the current tab, and add an "active" class to the button that opened the tab
     $("#" + question).show();

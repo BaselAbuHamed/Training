@@ -17,7 +17,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($question) || empty($correctAnswerNumber) || empty($field) || empty($choices)) {
         $response['status'] = "error";
         $response['message'] = "Please fill all fields.";
-        echo json_encode($response);
+        header("Location: index.php?error_message=" . urlencode(json_encode($response)));
+
+//        echo json_encode($response);
         exit;
     }
 
@@ -25,7 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!is_numeric($correctAnswerNumber)) {
         $response['status'] = "error";
         $response['message'] = "Please enter a number in the correct answer field.";
-        echo json_encode($response);
+        header("Location: index.php?error_message=" . urlencode(json_encode($response)));
+//        echo json_encode($response);
         exit;
     }
 
@@ -33,7 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($field == "Choose a field") {
         $response['status'] = "error";
         $response['message'] = "Please select a field.";
-        echo json_encode($response);
+        header("Location: index.php?error_message=" . urlencode(json_encode($response)));
+//        echo json_encode($response);
         exit;
     }
 
@@ -41,7 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (count($choices) < 2) {
         $response['status'] = "error";
         $response['message'] = "You need at least two choices.";
-        echo json_encode($response);
+        header("Location: index.php?error_message=" . urlencode(json_encode($response)));
+//        echo json_encode($response);
         exit;
     }
 
@@ -49,7 +54,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($correctAnswerNumber < 1 || $correctAnswerNumber > count($choices)) {
         $response['status'] = "error";
         $response['message'] = "Invalid correct answer number.";
-        echo json_encode($response);
+        header("Location: index.php?error_message=" . urlencode(json_encode($response)));
+//        echo json_encode($response);
         exit;
     }
 
@@ -82,19 +88,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($stmt->execute()) {
                 $response['status'] = "success";
                 $response['message'] = "Question added successfully!";
+                header("Location: index.php?success_message=" . urlencode(json_encode($response)));
             } else {
                 $response['status'] = "error";
                 $response['message'] = "Error updating correct answer ID.";
+                header("Location: index.php?error_message=" . urlencode(json_encode($response)));
             }
         }
     } else {
         $response['status'] = "error";
         $response['message'] = "Error adding question.";
+        header("Location: index.php?error_message=" . urlencode(json_encode($response)));
     }
 } else {
     $response['status'] = "error";
     $response['message'] = "Invalid request method";
+    header("Location: index.php?error_message=" . urlencode(json_encode($response)));
 }
 
-echo json_encode($response);
+//echo json_encode($response);
 ?>
