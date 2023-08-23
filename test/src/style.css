@@ -1,0 +1,406 @@
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+div {
+    margin-bottom: 15px;
+}
+label {
+    font-weight: bold;
+}
+.error {
+    color: red;
+    font-size: 10px;
+}
+/* --------------------------index page design-------------------------- */
+.container {
+    width: 500px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-top: 60px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.controls{
+    display: flex;
+    justify-content: space-evenly;
+}
+.controls button {
+    padding: 8px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.controls button.add {
+    background-color: #4caf50;
+    color: white;
+}
+.controls button.remove {
+    background-color: #ff3d00;
+    color: white;
+}
+.controls button:hover {
+    background-color: #333;
+}
+.submit{
+    display: flex;
+    justify-content: center;
+}
+#submitButton {
+    width: 60%;
+    padding: 8px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#submitButton:hover {
+    background-color: #333;
+}
+.redirect-button {
+    text-align: center;
+    margin-top: 10px;
+}
+.choice-input{
+    display: flex;
+    align-items: center;
+}
+.redirect-button a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.redirect-button a:hover {
+    background-color: #333;
+}
+/* --------------------------index page design-------------------------- */
+
+/* --------------------------header design-------------------------- */
+.menu_bar{
+    display: flex;
+    position: absolute;
+    height: 50px;
+    right: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+}
+.app-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+.app-name span {
+    color: #e74c3c;
+}
+/* --------------------------header design-------------------------- */
+
+/* --------------------------edit question design-------------------------- */
+.container-edit{
+    margin-top: 70px;
+    width: 50%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.container-edit h1 {
+    margin-bottom: 20px;
+}
+.container-edit form {
+    margin-top: 20px;
+}
+.container-edit label {
+    display: block;
+    margin-bottom: 5px;
+}
+.container-edit input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+.container-edit .choice-container {
+    display: flex;
+    align-items: center;
+}
+.container-edit input[type="submit"] {
+    width: 50%;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.container-edit input[type="submit"]:hover {
+    background-color: #333;
+}
+
+/* --------------------------edit question design-------------------------- */
+
+/* --------------------------view question design-------------------------- */
+.container-show {
+    margin-top: 70px;
+    min-width: 400px;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+.container-show label {
+    font-size: 22px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+.container-show .choices {
+    margin-top: 10px;
+}
+.container-show .choice-input {
+    margin-bottom: 5px;
+}
+.container-show #choice {
+    margin-top: 40px;
+}
+.container-show .back{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+.container-show #backTo {
+    background-color: #4caf50;
+    color: white;
+    text-decoration: none;
+    border: none;
+    font-size: 15px;
+    padding: 15px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.container-show #backTo:hover {
+    background-color: #333;
+}
+/* --------------------------view question design-------------------------- */
+
+/* --------------------------show question design-------------------------- */
+.tab {
+    display: flex;
+    flex-direction: column;
+    align-items:  center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 50px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+.containerTabs{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+.tabLinks {
+    color: black;
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    text-decoration: none;
+}
+.tabLinks:target {
+    background-color: #fff;
+    color: #000;
+    border-bottom: 1px solid #fff;
+    position: relative;
+    z-index: 1;
+}
+.tabContent:target {
+    display: block;
+}
+.tabLinks:hover {
+    background-color: #ddd;
+}
+.tabLinks:active {
+    background-color: #ccc;
+}
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+.tab button:hover {
+    background-color: #ddd;
+}
+.tabContent {
+    display: none;
+    width: 70%;
+    padding: 6px 12px;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+}
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+tr:nth-child(even) {
+    background-color: rgba(128, 128, 128, 0.43);
+}
+table button{
+    padding: 8px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#updateQuestion , #showQuestion{
+    background-color: #4caf50;
+    color: white;
+    text-decoration: none;
+    border: none;
+    font-size: 15px;
+    padding: 15px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+table button.deleteQuestion{
+    background-color: #ff3d00;
+    border: none;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+}
+#updateQuestion:hover,#showQuestion:hover,table button:hover{
+    background-color: #333;
+}
+/* --------------------------show question design-------------------------- */
+
+.error-message {
+
+    width: 350px;
+    height: 100px;
+    background-color:#f44336;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    border-radius: 10%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: showDivAnimation 5s forwards;
+}
+.error-message:target {
+    display: none;
+}
+
+.success-message{
+    width: 350px;
+    height: 100px;
+    background-color: #04AA6D;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: showDivAnimation 5s forwards;
+}
+
+
+.closeBtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closeBtn:hover {
+    color: black;
+}
+
+@keyframes showDivAnimation {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#hidden {
+    display: none;
+}
