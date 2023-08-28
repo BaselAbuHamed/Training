@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once '../classes/connect.php';
 include_once '../Models/model_add_question.php';
 
@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correctAnswerNumber = isset($_POST["correctAnswer"]) ? $_POST["correctAnswer"] : null;
     $field = isset($_POST["where"]) ? $_POST["where"] : null;
     $choices = isset($_POST["choice"]) ? $_POST["choice"] : array();
-
+    $userID=$_SESSION['userID'];
     // Validate if fields are empty.
     if (empty($question) || empty($correctAnswerNumber) || empty($field) || empty($choices)) {
         $response['status'] = "error";
@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    if(insertQuestion($pdo,$question,$field,$choices,$correctAnswerNumber)){
+    if(insertQuestion($pdo,$question,$field,$choices,$correctAnswerNumber,$userID)){
         $response['success'] = "success";
         $response['message'] = "The question has been added successfully";
         header("Location: ../../public/index.php?success_message=" . urlencode(json_encode($response)));

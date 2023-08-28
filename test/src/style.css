@@ -16,10 +16,6 @@ div {
 label {
     font-weight: bold;
 }
-.error {
-    color: red;
-    font-size: 10px;
-}
 /* --------------------------index page design-------------------------- */
 .container {
     width: 500px;
@@ -28,15 +24,6 @@ label {
     border-radius: 5px;
     margin-top: 60px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-input[type="text"],
-select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    box-sizing: border-box;
 }
 .controls{
     display: flex;
@@ -59,24 +46,6 @@ select {
     color: white;
 }
 .controls button:hover {
-    background-color: #333;
-}
-.submit{
-    display: flex;
-    justify-content: center;
-}
-#submitButton {
-    width: 60%;
-    padding: 8px 15px;
-    font-size: 14px;
-    border: none;
-    border-radius: 5px;
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-#submitButton:hover {
     background-color: #333;
 }
 .redirect-button {
@@ -110,15 +79,36 @@ select {
     top: 0;
     left: 0;
     width: 100%;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
     background-color: gray;
+
+}
+.logo{
+    padding-top: 15px;
+    padding-left: 10px;
 }
 .app-name {
+    padding-top: 15px;
     font-size: 20px;
     font-weight: bold;
 }
 .app-name span {
+    color: #e74c3c;
+}
+.log_out{
+    display: flex;
+    align-items: center;
+    padding-top: 15px;
+    padding-right: 10px;
+}
+.log_out a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    font-size: 20px;
+}
+.log_out a:hover {
     color: #e74c3c;
 }
 /* --------------------------header design-------------------------- */
@@ -126,7 +116,7 @@ select {
 /* --------------------------edit question design-------------------------- */
 .container-edit{
     margin-top: 70px;
-    width: 50%;
+    width: 500px;
     padding: 20px;
     background-color: #fff;
     border-radius: 5px;
@@ -142,35 +132,10 @@ select {
     display: block;
     margin-bottom: 5px;
 }
-.container-edit input[type="text"],
-select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-}
 .container-edit .choice-container {
     display: flex;
     align-items: center;
 }
-.container-edit input[type="submit"] {
-    width: 50%;
-    padding: 10px;
-    font-size: 14px;
-    border: none;
-    border-radius: 5px;
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-.container-edit input[type="submit"]:hover {
-    background-color: #333;
-}
-
 /* --------------------------edit question design-------------------------- */
 
 /* --------------------------view question design-------------------------- */
@@ -288,22 +253,22 @@ select {
     from {opacity: 0;}
     to {opacity: 1;}
 }
-table {
+.tab table {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #ddd;
 }
-th, td {
+.tab th, td {
     padding: 15px;
     text-align: left;
 }
-th {
+.tab th {
     background-color: #f2f2f2;
 }
-tr:nth-child(even) {
+.tab tr:nth-child(even) {
     background-color: rgba(128, 128, 128, 0.43);
 }
-table button{
+.tab table button{
     padding: 8px 15px;
     font-size: 14px;
     border: none;
@@ -322,7 +287,7 @@ table button{
     cursor: pointer;
     transition: background-color 0.3s;
 }
-table button.deleteQuestion{
+.tab table button.deleteQuestion{
     background-color: #ff3d00;
     border: none;
     font-size: 15px;
@@ -335,8 +300,99 @@ table button.deleteQuestion{
 }
 /* --------------------------show question design-------------------------- */
 
-.error-message {
+/* --------------------------sign up design-------------------------- */
+.signup_container {
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.registration-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.registration-section label{
+    width: 120px;
+}
+.signup_container a {
+    text-decoration: none;
+    color: #007bff;
+}
+.signup_container a:hover {
+    text-decoration: underline;
+}
+/* --------------------------sign up design-------------------------- */
 
+/* --------------------------log in design-------------------------- */
+.login-container {
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.login-container form {
+    text-align: center;
+}
+.login-container input[type="checkbox"] {
+    margin-right: 5px;
+}
+.login-container a {
+    text-decoration: none;
+    color: #007bff;
+}
+.login-container a:hover {
+    text-decoration: underline;
+}
+/* --------------------------log in design-------------------------- */
+
+/**************************************************************************/
+.tittle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #333333 ;
+}
+.submit{
+    display: flex;
+    justify-content: center;
+}
+input[type="submit"] {
+    width: 50%;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+input[type="submit"]:hover {
+    background-color: #333;
+}
+input[type="text"],input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.error-message {
     width: 350px;
     height: 100px;
     background-color:#f44336;
@@ -346,15 +402,10 @@ table button.deleteQuestion{
     position: fixed;
     top: 10%;
     left: 50%;
-    border-radius: 10%;
     transform: translate(-50%, -50%);
     opacity: 0;
     animation: showDivAnimation 5s forwards;
 }
-.error-message:target {
-    display: none;
-}
-
 .success-message{
     width: 350px;
     height: 100px;
@@ -369,8 +420,6 @@ table button.deleteQuestion{
     opacity: 0;
     animation: showDivAnimation 5s forwards;
 }
-
-
 .closeBtn {
     margin-left: 15px;
     color: white;
@@ -381,11 +430,9 @@ table button.deleteQuestion{
     cursor: pointer;
     transition: 0.3s;
 }
-
 .closeBtn:hover {
     color: black;
 }
-
 @keyframes showDivAnimation {
     0% {
         opacity: 0;
@@ -400,7 +447,8 @@ table button.deleteQuestion{
         opacity: 0;
     }
 }
-
-#hidden {
-    display: none;
+.error {
+    color: red;
+    font-size: 10px;
 }
+/**************************************************************************/

@@ -3,11 +3,6 @@ $(document).ready(function() {
     $('.remove').on('click', removeChoice);
     setupValidation();
 
-    const questionID=$('.questionID').value;
-    const delButton = $('.delete_button');
-    const del=$('<button class="deleteQuestion" onclick="deleteQuestion(questionID)">Delete</button>');
-    delButton.append(del);
-
 });
 
 
@@ -151,7 +146,9 @@ function validateForm() {
 }
 
 // Add this function to handle the delete action
-function deleteQuestion(questionID) {
+function deleteQuestion(questionID,questions) {
+    console.log(questionID);
+    console.log(questions);
     const confirmationDialog = $('<div title="Confirm Delete">Are you sure you want to delete this question?</div>').dialog({
         autoOpen: false,
         modal: true,
@@ -159,8 +156,9 @@ function deleteQuestion(questionID) {
             Confirm: function() {
                 $.ajax({
                     type: "POST",
-                    url: "delete_question.php", // Replace with the actual PHP file to delete the question
-                    data: { questionID: questionID },
+                    url: "..//Controllers/cont_delete_question.php", // Replace with the actual PHP file to delete the question
+                    data: { questionID: questionID,
+                        questions : questions},
                     success: function(response) {
                         // Reload the tab content after successful deletion
                         $("#questionRow_" + questionID).remove();

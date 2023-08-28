@@ -1,12 +1,13 @@
 <?php
 
-function insertQuestion($pdo,$question,$field,$choices,$correctAnswerNumber)
+function insertQuestion($pdo,$question,$field,$choices,$correctAnswerNumber,$userID)
 {
     // Insert question into the 'question' table
-    $sql = "INSERT INTO question (question, field) VALUES (:question, :field)";
+    $sql = "INSERT INTO question (question, field,userID) VALUES (:question, :field, :userID)";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':question', $question, PDO::PARAM_STR);
     $stmt->bindParam(':field', $field, PDO::PARAM_STR);
+    $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
     insertChoices($pdo, $stmt->execute(), $choices, $correctAnswerNumber);
     return $stmt;
 }
