@@ -39,7 +39,7 @@ function displayQuestions($pdo, $questions) {
         echo '<td><a id="showQuestion" href="../Views/view_question.php?questionID=' . htmlspecialchars($questionID) . '">View</a></td>';
         echo '<td><a id="updateQuestion" href="../Views/edit_question.php?questionID=' . htmlspecialchars($questionID) . '">Edit</a></td>';
         echo '<td>';
-        echo '<button class="deleteQuestion" onclick="deleteQuestion(' . htmlspecialchars($questionID) . ', \'' . htmlspecialchars($row['field']) . '\')">Delete</button></td>';
+        echo '<button class="deleteQuestion" onclick="deleteQuestion(' . htmlspecialchars($questionID) . ', \'' . htmlspecialchars($row['field']) . '\')">Delete</button>';
         echo '</td>';
         echo '</tr>';
         $index++;

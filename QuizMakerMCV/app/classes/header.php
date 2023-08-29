@@ -16,13 +16,13 @@ if (isset($_GET['logout'])) {
     session_destroy();
     // Redirect to the login page
     header("Location: ../../public/index.php");
-    exit();
+    exit;
 }
 ?>
 
 <div class="menu_bar">
     <div class="logo">
-        <img src="/test/src/images/quiz_logo.png" alt="Logo" width="100px" height="100px"/>
+        <img src="/QuizMakerMCV/src/images/quiz_logo.png" alt="Logo" width="100px" height="100px"/>
     </div>
     <div class="app-name">
         <p>Quiz

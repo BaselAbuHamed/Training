@@ -156,7 +156,7 @@ function deleteQuestion(questionID,questions) {
             Confirm: function() {
                 $.ajax({
                     type: "POST",
-                    url: "..//Controllers/cont_delete_question.php", // Replace with the actual PHP file to delete the question
+                    url: "/Internship/test/app/Controllers/cont_delete_question.php\n", // Replace with the actual PHP file to delete the question
                     data: { questionID: questionID,
                         questions : questions},
                     success: function(response) {
@@ -210,4 +210,14 @@ function updateForm() {
     }
     const hiddenData = document.getElementById("hiddenData");
     hiddenData.setAttribute("value",  JSON.stringify(Data));
+}
+
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
 }

@@ -7,7 +7,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: Arial, sans-serif;
+    font-family: "Times New Roman", sans-serif;
     background-color: #f0f0f0;
 }
 div {
@@ -144,8 +144,19 @@ label {
     min-width: 400px;
     max-width: 800px;
     padding: 20px;
+    border-radius: 10px;
     background-color: #ffffff;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+.Question{
+    padding:10px;
+    background-color: #D3D3D3	;
+    border-radius: 10px;
+}
+#Q{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .container-show label {
     font-size: 22px;
@@ -153,17 +164,24 @@ label {
     display: block;
     margin-bottom: 5px;
 }
-.container-show .choices {
-    margin-top: 10px;
+.container-show .choices{
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
 }
 .container-show .choice-input {
-    margin-bottom: 5px;
+    padding:10px;
+    text-align: center;
+    justify-content: center;
+    background-color: #D3D3D3	;
+    border-radius: 10px;
 }
-.container-show #choice {
-    margin-top: 40px;
+.container-show input[type=radio] {
+    display: none;
 }
 .container-show .back{
-    margin-top: 50px;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
 }
@@ -394,30 +412,32 @@ select {
 }
 .error-message {
     width: 350px;
-    height: 100px;
+    font-family: "Times New Roman", Times, serif;
     background-color:#f44336;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     position: fixed;
     top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
+    border-radius: 10px;
     animation: showDivAnimation 5s forwards;
 }
 .success-message{
     width: 350px;
-    height: 100px;
+    font-family: "Times New Roman", Times, serif;
     background-color: #04AA6D;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     position: fixed;
     top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
+    border-radius: 10px;
     animation: showDivAnimation 5s forwards;
 }
 .closeBtn {
@@ -451,4 +471,62 @@ select {
     color: red;
     font-size: 10px;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
 /**************************************************************************/
+
+#mySidenav a {
+    margin-top: 150px;
+    position: fixed; /* Position them relative to the browser window */
+    left: -150px; /* Position them outside of the screen */
+    transition: 0.3s; /* Add transition on hover */
+    padding: 15px; /* 15px padding */
+    width: 150px; /* Set a specific width */
+    text-decoration: none; /* Remove underline */
+    font-size: 20px; /* Increase font size */
+    color: white; /* White text color */
+    border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+}
+
+#mySidenav a:hover {
+    left: 0; /* On mouse-over, make the elements appear as they should */
+}
+
+/* The about link: 20px from the top with a green background */
+#about {
+    top: 20px;
+    background-color: #04AA6D;
+}
+
+#blog {
+    top: 80px;
+    background-color: #2196F3; /* Blue */
+}
+
+#projects {
+    top: 140px;
+    background-color: #f44336; /* Red */
+}
+
+#contact {
+    top: 200px;
+    background-color: #555 /* Light Black */
+}

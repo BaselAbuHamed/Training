@@ -60,4 +60,3 @@ function getQuestionChoices($pdo, $questionID) {
     }
     return $choices;
 }
-?>

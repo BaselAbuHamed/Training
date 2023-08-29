@@ -2,7 +2,7 @@
 
 // To get question details
 function getQuestionTitle($pdo, $questionID) {
-    $sql = "SELECT question FROM question WHERE questionID = :questionID";
+    $sql = "SELECT question , field FROM question WHERE questionID = :questionID";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':questionID', $questionID, PDO::PARAM_INT);
     $stmt->execute();
@@ -22,4 +22,3 @@ function getQuestionChoices($pdo, $questionID) {
     }
     return $choices;
 }
-?>
