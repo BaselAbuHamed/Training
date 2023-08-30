@@ -10,7 +10,7 @@ $(document).ready(function() {
 
     // Create and append tab buttons
     for (const tabName of tabNames) {
-        const button = $('<button class="tablinks"></button>')
+        const button = $('<button class="tabLinks"></button>')
             .text(tabName.charAt(0).toUpperCase() + tabName.slice(1))
             .on('click', function(event) {
                 openQuestions(event, tabName);
@@ -18,14 +18,13 @@ $(document).ready(function() {
         container.append(button);
     }
     // Set the first tab as active
-    $('.tablinks:first').attr('id', 'defaultOpen');
+    $('.tabLinks:first').attr('id', 'defaultOpen');
 
+    const questionID=$('.questionID').value;
     const delButton = $('.delete_button');
-    const del=$('<button class="deleteQuestion" onclick="deleteQuestion(\' . htmlspecialchars($questionID) . \')">Delete</button>');
+    const del=$('<button class="deleteQuestion" onclick="deleteQuestion(questionID)">Delete</button>');
     delButton.append(del);
 
-    // $('#defaultOpen').click();
-    // document.getElementById("defaultOpen").click();
 });
 
 

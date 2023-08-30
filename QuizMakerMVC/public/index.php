@@ -23,6 +23,7 @@ if (!isset($_SESSION['email'])) {
             $error_message = json_decode(urldecode($_GET['error_message']), true);
             $status = $error_message['status'];
             $message = $error_message['message'];
+
             echo '<div class="error-message" id="hidden">';
             echo '<span class="closeBtn" onclick="this.parentElement.style.display=\'none\';">&times;</span>';
             echo htmlspecialchars($message);
@@ -31,10 +32,11 @@ if (!isset($_SESSION['email'])) {
         ?>
         <?php
         if (isset($_GET['success_message'])) {
-            $success_message = json_decode(urldecode($_GET['error_message']), true);
+            $success_message = json_decode(urldecode($_GET['success_message']), true);
             $status = $success_message['status'];
             $message = $success_message['message'];
-            echo '<div class="success_message" id="hidden">';
+
+            echo '<div class="success-message">';
             echo '<span class="closeBtn" onclick="this.parentElement.style.display=\'none\';">&times;</span>';
             echo htmlspecialchars($message);
             echo '</div>';
@@ -43,15 +45,13 @@ if (!isset($_SESSION['email'])) {
         <?php include("../app/classes/side_nav.php"); ?>
 
         <div class="container">
-            <form method="post"
-                action="../app/Controllers/cont_add_question.php"
-                id="addQuestionForm"
-                onsubmit="return validateForm()">
+            <div class="tittle">
+                <h1>Add New Question</h1>
+            </div>
+            <form method="post" action="../app/Controllers/cont_add_question.php" id="addQuestionForm" onsubmit="return validateForm()">
                 <div>
                     <label for="question">Question:</label>
-                    <input type="text" name="question" id="question"
-                        placeholder="Enter the question text"
-                        autocomplete="off" />
+                    <input type="text" name="question" id="question" placeholder="Enter the question text" autocomplete="off" />
                     <span class="error" id="questionError"></span>
                 </div>
                 <div>
@@ -67,10 +67,8 @@ if (!isset($_SESSION['email'])) {
                     <span class="error" id="fieldError"></span>
                 </div>
                 <div>
-                    <label for="correctAnswer">Correct Answer:</label>
-                    <input type="text" name="correctAnswer" id="correctAnswer"
-                        placeholder="Enter the correct answer number"
-                        autocomplete="off" />
+                    <label for="correctAnswer">Correct Answer Choice:</label>
+                    <input type="text" name="correctAnswer" id="correctAnswer" placeholder="Enter the correct answer number" autocomplete="off" />
                     <span class="error" id="correctAnswerError"></span>
                 </div>
                 <div class="choices" id="choices-container">

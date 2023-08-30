@@ -29,12 +29,10 @@ if (!isset($_SESSION['email'])) {
     <div class="container-show">
             <input type="hidden" name="questionID" value="<?php echo getQuestionID(); ?>" />
         <label for="question">Question:</label>
-
         <div class="Question">
                 <label id="Q"><?php echo htmlspecialchars(getDetails()['question']); ?></label>
             </div>
         <label id="choice" for="choices">Choices:</label>
-
         <div class="choices" id="choices-container">
                 <?php foreach (getChoices() as $index => $choice) : ?>
                     <div class="choice-input" data-choice=<?php echo $index+1?>>
@@ -50,12 +48,8 @@ if (!isset($_SESSION['email'])) {
             ?>
         </div>
             <div class="back">
-                <?php
-echo '<a id="backTo" href="./show_question.php#' . getDetails()['field'] . '">back</a>';
-
-                ?>
+                <?php echo '<a id="backTo" href="./show_question.php#' . getDetails()['field'] . '">back</a>'; ?>
             </div>
-
     </div>
 </body>
 </html>

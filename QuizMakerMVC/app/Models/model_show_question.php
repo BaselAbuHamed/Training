@@ -29,7 +29,7 @@ function getQuestionsByField($pdo, $field) {
 function displayQuestions($pdo, $questions) {
     $index = 1;
     echo '<table>';
-    echo '<tr><th>Question Number</th><th>Question</th><th>Correct Answer</th><th></th><th></th><th></th></tr>';
+    echo '<thead><tr><th>Question Number</th><th>Question</th><th>Correct Answer</th><th></th><th></th><th></th></tr></thead>';
     foreach ($questions as $row) {
         echo '<tr id="questionRow_' . $row['questionID'] . '">';
         $questionID = isset($row['questionID']) ? $row['questionID'] : 'N/A';
@@ -39,7 +39,9 @@ function displayQuestions($pdo, $questions) {
         echo '<td><a id="showQuestion" href="../Views/view_question.php?questionID=' . htmlspecialchars($questionID) . '">View</a></td>';
         echo '<td><a id="updateQuestion" href="../Views/edit_question.php?questionID=' . htmlspecialchars($questionID) . '">Edit</a></td>';
         echo '<td>';
+        echo '<div class="delete_button">';
         echo '<button class="deleteQuestion" onclick="deleteQuestion(' . htmlspecialchars($questionID) . ', \'' . htmlspecialchars($row['field']) . '\')">Delete</button>';
+        echo '</div>';
         echo '</td>';
         echo '</tr>';
         $index++;

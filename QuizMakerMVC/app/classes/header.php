@@ -22,7 +22,7 @@ if (isset($_GET['logout'])) {
 
 <div class="menu_bar">
     <div class="logo">
-        <img src="/QuizMakerMCV/src/images/quiz_logo.png" alt="Logo" width="100px" height="100px"/>
+        <img src="/QuizMakerMVC/src/images/quiz_logo.png" alt="Logo" width="100px" height="100px"/>
     </div>
     <div class="app-name">
         <p>Quiz

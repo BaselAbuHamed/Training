@@ -8,6 +8,5 @@ function logError($message) {
     // Append the error message to the log file
 
     file_put_contents($logFile, $errorLogEntry, FILE_APPEND);
-
 }
 

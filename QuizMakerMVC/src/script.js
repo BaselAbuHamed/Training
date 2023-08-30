@@ -156,7 +156,7 @@ function deleteQuestion(questionID,questions) {
             Confirm: function() {
                 $.ajax({
                     type: "POST",
-                    url: "/Internship/test/app/Controllers/cont_delete_question.php\n", // Replace with the actual PHP file to delete the question
+                    url: "/Internship/QuizMakerMVC/app/Controllers/cont_delete_question.php\n", // Replace with the actual PHP file to delete the question
                     data: { questionID: questionID,
                         questions : questions},
                     success: function(response) {

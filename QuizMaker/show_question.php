@@ -31,8 +31,8 @@ function displayQuestions($pdo, $questions) {
         echo '<td><a id="updateQuestion" href="edit_question.php?questionID=' . htmlspecialchars($questionID) . '">Edit</a></td>';
         echo '<td>';
         echo '<div class="delete_button">';
-        echo '<noscript><form action="delete_question.php" method="post">';
-        echo '<input type="hidden" name="questionID" value="' . htmlspecialchars($questionID) . '" />';
+        echo '<input type="hidden" class="questionID" value="' . htmlspecialchars($questionID) . '" />';
+        echo '<noscript><form action="modal_delete_question.php" method="post">';
         echo '<button class="deleteQuestion" type="submit" name="delete" >Delete</button>';
         echo '</form></noscript>';
         echo '</div>';
@@ -90,7 +90,6 @@ function getAllQuestions($pdo) {
             <a class="tabLinks" href="#allQuestion">All Question</a>
         </noscript>
     </div>
-
     <div id="mathematics" class="tabContent">
         <?php
         $questions = getQuestionsByField($pdo, 'mathematics');

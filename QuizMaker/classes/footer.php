@@ -10,7 +10,6 @@
     <div class="contact-info">
         <p class="smallest-text">Contact: support@example.com</p>
         <p class="smallest-text">Phone: +1 234-567-890</p>
-        
     </div>
     <div>
     <a href="contact.html">Contact Us</a>

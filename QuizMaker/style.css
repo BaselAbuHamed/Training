@@ -131,20 +131,16 @@ select {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 .container-edit h1 {
     margin-bottom: 20px;
 }
-
 .container-edit form {
     margin-top: 20px;
 }
-
 .container-edit label {
     display: block;
     margin-bottom: 5px;
 }
-
 .container-edit input[type="text"],
 select {
     width: 100%;
@@ -155,12 +151,10 @@ select {
     box-sizing: border-box;
     margin-bottom: 10px;
 }
-
 .container-edit .choice-container {
     display: flex;
     align-items: center;
 }
-
 .container-edit input[type="button"] {
     width: 50%;
     padding: 10px;
@@ -172,14 +166,13 @@ select {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-
 .container-edit input[type="button"]:hover {
     background-color: #333;
 }
 
 /* --------------------------edit question design-------------------------- */
 
-/* --------------------------show question design-------------------------- */
+/* --------------------------view question design-------------------------- */
 .container-show {
     margin-top: 70px;
     min-width: 400px;
@@ -188,31 +181,26 @@ select {
     background-color: #ffffff;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 }
-
 .container-show label {
     font-size: 22px;
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
 }
-
 .container-show .choices {
     margin-top: 10px;
 }
-
 .container-show .choice-input {
     margin-bottom: 5px;
 }
 .container-show #choice {
     margin-top: 40px;
 }
-
 .container-show .back{
     margin-top: 50px;
     display: flex;
     justify-content: center;
 }
-
 .container-show #backTo {
     background-color: #4caf50;
     color: white;
@@ -227,33 +215,7 @@ select {
 .container-show #backTo:hover {
     background-color: #333;
 }
-/* --------------------------show question design-------------------------- */
-.error-message {
-    display: flex;
-    justify-content: center;
-    background-color: #f8d7da; /* Background color for error message */
-    color: #721c24; /* Text color for error message */
-    /*border: 1px solid #f5c6cb; !* Border color for error message *!*/
-    /*padding: 10px 15px; !* Padding around the error message *!*/
-    margin-bottom: 15px; /* Margin below the error message */
-    border-radius: 5px; /* Rounded corners for the error message box */
-    font-size: 16px; /* Font size for the error message text */
-    font-weight: bold; /* Font weight for the error message text */
-}
-
-.success-message {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #d4edda; /* Background color for success message */
-    color: #155724; /* Text color for success message */
-    /*border: 1px solid #c3e6cb; !* Border color for success message *!*/
-    /*padding: 10px 15px; !* Padding around the success message *!*/
-    margin-bottom: 15px; /* Margin below the success message */
-    border-radius: 5px; /* Rounded corners for the success message box */
-    font-size: 16px; /* Font size for the success message text */
-    font-weight: bold; /* Font weight for the success message text */
-}
+/* --------------------------view question design-------------------------- */
 
 /* --------------------------show question design-------------------------- */
 .tab {
@@ -359,7 +321,6 @@ table button{
     cursor: pointer;
     transition: background-color 0.3s;
 }
-
 table button.deleteQuestion{
     background-color: #ff3d00;
     border: none;
@@ -371,5 +332,26 @@ table button.deleteQuestion{
 #updateQuestion:hover,#showQuestion:hover,table button:hover{
     background-color: #333;
 }
-
 /* --------------------------show question design-------------------------- */
+
+.error-message {
+    display: flex;
+    justify-content: center;
+    background-color: #f8d7da;
+    color: #721c24;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.success-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d4edda;
+    color: #155724;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
