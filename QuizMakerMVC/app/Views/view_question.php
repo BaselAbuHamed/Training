@@ -37,7 +37,7 @@ if (!isset($_SESSION['email'])) {
                 <?php foreach (getChoices() as $index => $choice) : ?>
                     <div class="choice-input" data-choice=<?php echo $index+1?>>
                             <input type="radio" name="choice[]" value="<?php echo $choice ?>" />
-                            <span class="Q"><?php echo $choice ?></span><br>
+                            <span class="Q"><?php echo $choice ?></span>
                     </div>
                 <?php endforeach; ?>
             </div>

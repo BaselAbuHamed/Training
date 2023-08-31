@@ -536,4 +536,113 @@ select {
 }
 /**************************************************************************/
 
+.quiz-form {
+    align-items: center;
+    margin-top: 70px;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 500px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
 
+
+.quiz-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.num_field {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+input[type="number"]{
+    margin-left: 10px;
+}
+.quiz-form input[type="number"], .quiz-form select {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.quiz-form input[type="submit"] {
+    width: 50%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.quiz-form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/*********************************/
+
+.container-quiz {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 70px;
+    width:500px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+.question{
+    padding:10px;
+    background-color: #D3D3D3	;
+    border-radius: 10px;
+}
+#Q{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-quiz label {
+    font-size: 22px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+.container-quiz .choices{
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+}
+.container-quiz .choice-input {
+    padding:10px;
+    text-align: center;
+    justify-content: center;
+    background-color: #D3D3D3	;
+    border-radius: 10px;
+}
+.container-quiz input[type=radio]{
+    display: none;
+}
+.container-quiz input[type=text]{
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0) ;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: "Times New Roman";
+}
+.question-design{
+    background-color: #999999;
+    width: 470px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 25px 15px;
+}
