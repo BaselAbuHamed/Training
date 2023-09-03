@@ -1,5 +1,5 @@
 <?php
-require_once '../classes/error_log.php';
+include_once '../classes/error_log.php';
 
 //to get choice id from answers table
 function getAnswerID($pdo, $questionID, $choiceText) {

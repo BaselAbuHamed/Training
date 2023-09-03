@@ -16,6 +16,140 @@ div {
 label {
     font-weight: bold;
 }
+
+/* --------------------------side nav design-------------------------- */
+#mySidenav a {
+    margin-top: 150px;
+    position: fixed;
+    left: -150px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 150px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 0 5px 5px 0;
+}
+#mySidenav a:hover {
+    left: 0;
+}
+#about {
+    top: 20px;
+    background-color: #04AA6D;
+}
+#blog {
+    top: 80px;
+    background-color: #2196F3; /* Blue */
+}
+#projects {
+    top: 140px;
+    background-color: #f44336; /* Red */
+}
+#contact {
+    top: 200px;
+    background-color: #555 /* Light Black */
+}
+/* --------------------------side nav design-------------------------- */
+
+/* --------------------------header design-------------------------- */
+.menu_bar{
+    display: flex;
+    position: absolute;
+    height: 50px;
+    right: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(128, 128, 128);
+
+}
+.logo{
+    padding-top: 15px;
+    padding-left: 10px;
+}
+.app-name {
+    padding-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.app-name span {
+    color: #e74c3c;
+}
+.log_out{
+    display: flex;
+    align-items: center;
+    padding-top: 15px;
+    padding-right: 10px;
+}
+.log_out a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    font-size: 20px;
+}
+.log_out a:hover {
+    color: #e74c3c;
+}
+/* --------------------------header design-------------------------- */
+
+/* --------------------------log in design-------------------------- */
+.login-container {
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.login-container form {
+    text-align: center;
+}
+.login-container input[type="checkbox"] {
+    margin-right: 5px;
+}
+.login-container a {
+    text-decoration: none;
+    color: #007bff;
+}
+.login-container a:hover {
+    text-decoration: underline;
+}
+/* --------------------------log in design-------------------------- */
+
+/* --------------------------sign up design-------------------------- */
+.signup_container {
+    width: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.registration-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.registration-section label{
+    width: 120px;
+}
+.signup_container a {
+    text-decoration: none;
+    color: #007bff;
+}
+.signup_container a:hover {
+    text-decoration: underline;
+}
+/* --------------------------sign up design-------------------------- */
+
 /* --------------------------index page design-------------------------- */
 .container {
     width: 500px;
@@ -73,115 +207,6 @@ label {
     background-color: #333;
 }
 /* --------------------------index page design-------------------------- */
-
-/* --------------------------header design-------------------------- */
-.menu_bar{
-    display: flex;
-    position: absolute;
-    height: 50px;
-    right: 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgb(128, 128, 128);
-
-}
-.logo{
-    padding-top: 15px;
-    padding-left: 10px;
-}
-.app-name {
-    padding-top: 15px;
-    font-size: 20px;
-    font-weight: bold;
-}
-.app-name span {
-    color: #e74c3c;
-}
-.log_out{
-    display: flex;
-    align-items: center;
-    padding-top: 15px;
-    padding-right: 10px;
-}
-.log_out a {
-    text-decoration: none;
-    color: #000000;
-    font-weight: bold;
-    font-size: 20px;
-}
-.log_out a:hover {
-    color: #e74c3c;
-}
-/* --------------------------header design-------------------------- */
-
-/* --------------------------edit question design-------------------------- */
-.container-edit{
-    margin-top: 70px;
-    width: 500px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-}
-.container-edit label {
-    display: block;
-    margin-bottom: 5px;
-}
-.container-edit .choice-container {
-    display: flex;
-    align-items: center;
-}
-/* --------------------------edit question design-------------------------- */
-
-/* --------------------------view question design-------------------------- */
-.container-show {
-    margin-top: 70px;
-    min-width: 400px;
-    max-width: 800px;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
-}
-.Question{
-    padding:10px;
-    background-color: #D3D3D3	;
-    border-radius: 10px;
-}
-#Q{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.container-show label {
-    font-size: 22px;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-}
-.container-show .choices{
-    margin: 10px 0;
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-gap: 10px;
-}
-.container-show .choice-input {
-    padding:10px;
-    text-align: center;
-    justify-content: center;
-    background-color: #D3D3D3	;
-    border-radius: 10px;
-}
-.container-show input[type=radio] {
-    display: none;
-}
-.container-show #backTo:hover {
-    background-color: #333;
-}
-/* --------------------------view question design-------------------------- */
 
 /* --------------------------show question design-------------------------- */
 .tab {
@@ -305,102 +330,226 @@ button.deleteQuestion{
 }
 /* --------------------------show question design-------------------------- */
 
-/* --------------------------sign up design-------------------------- */
-.signup_container {
-    width: 300px;
+/* --------------------------view question design-------------------------- */
+.container-show {
+    margin-top: 70px;
+    min-width: 400px;
+    max-width: 800px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+.Question{
+    padding:10px;
+    background-color: #D3D3D3	;
+    border-radius: 10px;
+}
+#Q{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-show label {
+    font-size: 22px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+.container-show .choices{
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+}
+.container-show .choice-input {
+    padding:10px;
+    text-align: center;
+    justify-content: center;
+    background-color: #D3D3D3	;
+    border-radius: 10px;
+}
+.container-show input[type=radio] {
+    display: none;
+}
+.container-show #backTo:hover {
+    background-color: #333;
+}
+/* --------------------------view question design-------------------------- */
+
+/* --------------------------edit question design-------------------------- */
+.container-edit{
+    margin-top: 70px;
+    width: 500px;
     padding: 20px;
     background-color: #fff;
     border-radius: 5px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
-.registration-section{
+.container-edit label {
+    display: block;
+    margin-bottom: 5px;
+}
+.container-edit .choice-container {
     display: flex;
     align-items: center;
-    justify-content: center;
 }
-.registration-section label{
-    width: 120px;
-}
-.signup_container a {
-    text-decoration: none;
-    color: #007bff;
-}
-.signup_container a:hover {
-    text-decoration: underline;
-}
-/* --------------------------sign up design-------------------------- */
+/* --------------------------edit question design-------------------------- */
 
-/* --------------------------log in design-------------------------- */
-.login-container {
+/* --------------------------create quiz design-------------------------- */
+.create-quiz-container{
     width: 300px;
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
     background-color: #ffffff;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
-.login-container form {
-    text-align: center;
-}
-.login-container input[type="checkbox"] {
-    margin-right: 5px;
-}
-.login-container a {
-    text-decoration: none;
+a#create_user {
     color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    margin-right: 10px;
 }
-.login-container a:hover {
-    text-decoration: underline;
+a#create_random {
+    color: orange;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border: 1px solid orange;
+    border-radius: 5px;
 }
-/* --------------------------log in design-------------------------- */
+a#create_user:hover {
+    color: #f8f9fa;
+    background-color: #007bff;
+    border: 1px solid #007bff;
+}
+a#create_random:hover {
+    color: white;
+    background-color: orange;
+    border: 1px solid orange;
+}
+/* --------------------------create quiz design-------------------------- */
 
-/* --------------------------side nav design-------------------------- */
-
-#mySidenav a {
-    margin-top: 150px;
-    position: fixed; /* Position them relative to the browser window */
-    left: -150px; /* Position them outside of the screen */
-    transition: 0.3s; /* Add transition on hover */
-    padding: 15px; /* 15px padding */
-    width: 150px; /* Set a specific width */
-    text-decoration: none; /* Remove underline */
-    font-size: 20px; /* Increase font size */
-    color: white; /* White text color */
-    border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+/* --------------------------create random quiz design-------------------------- */
+.quiz-form {
+    align-items: center;
+    margin-top: 70px;
+    background-color: #fff;
+    border-radius: 10px;
+    width: 500px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
-
-#mySidenav a:hover {
-    left: 0; /* On mouse-over, make the elements appear as they should */
+.quiz-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
-
-/* The about link: 20px from the top with a green background */
-#about {
-    top: 20px;
-    background-color: #04AA6D;
+.num_field {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
-
-#blog {
-    top: 80px;
-    background-color: #2196F3; /* Blue */
+input[type="number"]{
+    margin-left: 10px;
 }
-
-#projects {
-    top: 140px;
-    background-color: #f44336; /* Red */
+.quiz-form input[type="number"], .quiz-form select {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
-
-#contact {
-    top: 200px;
-    background-color: #555 /* Light Black */
+.quiz-form input[type="submit"] {
+    width: 50%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
-/* --------------------------side nav design-------------------------- */
+.quiz-form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+/* --------------------------create random quiz design-------------------------- */
+
+/* --------------------------display quiz design-------------------------- */
+.container-quiz {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 70px;
+    width:500px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+.question{
+    padding:10px;
+    background-color: #D3D3D3	;
+    border-radius: 10px;
+}
+#Q{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-quiz label {
+    font-size: 22px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+.container-quiz .choices{
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+}
+.container-quiz .choice-input {
+    padding:10px;
+    text-align: center;
+    justify-content: center;
+    background-color: #D3D3D3	;
+    border-radius: 10px;
+}
+.container-quiz input[type=radio]{
+    display: none;
+}
+.container-quiz input[type=text]{
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(0, 0, 0, 0) ;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: "Times New Roman";
+}
+.question-design{
+    background-color: #999999;
+    width: 470px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 25px 15px;
+}
+/* --------------------------display quiz design-------------------------- */
+
 
 /**************************************************************************/
 .tittle{
@@ -515,133 +664,47 @@ select {
     cursor: pointer;
     transition: background-color 0.3s;
 }
-/* width */
 ::-webkit-scrollbar {
     width: 10px;
 }
-
-/* Track */
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
-
-/* Handle */
 ::-webkit-scrollbar-thumb {
     background: #888;
 }
-
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
 /**************************************************************************/
 
-.quiz-form {
-    align-items: center;
-    margin-top: 70px;
-    background-color: #fff;
-    border-radius: 10px;
-    width: 500px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+.quiz-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Adjust the number of columns as needed */
+    gap: 20px; /* Adjust the gap between items */
+    list-style: none;
+    padding: 0;
 }
-
-
-.quiz-form form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.num_field {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-}
-
-input[type="number"]{
-    margin-left: 10px;
-}
-.quiz-form input[type="number"], .quiz-form select {
-    width: 50%;
+.quiz-item {
+    border: 1px solid #ddd;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    text-align: center;
 }
-
-.quiz-form input[type="submit"] {
-    width: 50%;
-    padding: 10px;
+.quiz-button {
     background-color: #007bff;
     color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
 }
 
-.quiz-form input[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-/*********************************/
-
-.container-quiz {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    margin-top: 70px;
-    width:500px;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
-}
-.question{
-    padding:10px;
-    background-color: #D3D3D3	;
-    border-radius: 10px;
-}
-#Q{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.container-quiz label {
-    font-size: 22px;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-}
-.container-quiz .choices{
-    margin: 10px 0;
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-gap: 10px;
-}
-.container-quiz .choice-input {
-    padding:10px;
-    text-align: center;
-    justify-content: center;
-    background-color: #D3D3D3	;
-    border-radius: 10px;
-}
-.container-quiz input[type=radio]{
-    display: none;
-}
-.container-quiz input[type=text]{
-    background-color: rgba(0, 0, 0, 0);
-    border-color: rgba(0, 0, 0, 0) ;
-    text-align: center;
-    font-size: 22px;
-    font-weight: bold;
-    font-family: "Times New Roman";
-}
-.question-design{
+.quiz-design{
     background-color: #999999;
-    width: 470px;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
     padding: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     border-radius: 25px 15px;

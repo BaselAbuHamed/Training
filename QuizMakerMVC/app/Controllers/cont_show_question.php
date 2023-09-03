@@ -1,8 +1,6 @@
 <?php
 include_once '../classes/connect.php';
 include_once '../Models/model_show_question.php';
-session_start();
-
 function getData($field){
     $pdo = db_connect();
     return getQuestionsByField($pdo, $field);

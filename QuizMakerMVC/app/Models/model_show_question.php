@@ -1,5 +1,5 @@
 <?php
-include '../classes/error_log.php';
+include_once '../classes/error_log.php';
 
 /*for selecting all data from data base*/
 function getAllQuestions($pdo) {
@@ -28,6 +28,8 @@ function getQuestionsByField($pdo, $field) {
  for deleting the data from the database*/
 function displayQuestions($pdo, $questions) {
     $index = 1;
+    $current_script = basename($_SERVER['SCRIPT_NAME']);
+    echo '<form method="POST" action="../Views/display_quiz.php">'; // Replace 'process_quiz.php' with your form processing script
     echo '<table>';
     echo '<thead><tr><th>Question Number</th><th>Question</th><th>Correct Answer</th><th></th><th></th><th></th></tr></thead>';
     foreach ($questions as $row) {
@@ -36,17 +38,32 @@ function displayQuestions($pdo, $questions) {
         echo '<td>' . $index . '</td>';
         echo '<td>' . htmlspecialchars($row['question']) . '</td>';
         echo '<td>' . getCorrectAnswer($pdo, $row['correctAnswer']) . '</td>';
-        echo '<td><a id="showQuestion" href="../Views/view_question.php?questionID=' . htmlspecialchars($questionID) . '">View</a></td>';
-        echo '<td><a id="updateQuestion" href="../Views/edit_question.php?questionID=' . htmlspecialchars($questionID) . '">Edit</a></td>';
-        echo '<td>';
-        echo '<div class="delete_button">';
-        echo '<button class="deleteQuestion" onclick="deleteQuestion(' . htmlspecialchars($questionID) . ', \'' . htmlspecialchars($row['field']) . '\')">Delete</button>';
-        echo '</div>';
+
+        if ($current_script === 'show_question.php') {
+            // Display questions for viewing
+            echo '<td><a id="showQuestion" href="../Views/view_question.php?questionID=' . htmlspecialchars($questionID) . '">View</a></td>';
+            echo '<td><a id="updateQuestion" href="../Views/edit_question.php?questionID=' . htmlspecialchars($questionID) . '">Edit</a></td>';
+            echo '<td>';
+            echo '<div class="delete_button">';
+            echo '<button class="deleteQuestion" onclick="deleteQuestion(' . htmlspecialchars($questionID) . ', \'' . htmlspecialchars($row['field']) . '\')">Delete</button>';
+            echo '</div>';
+        } elseif ($current_script === 'create_quiz_by_user.php') {
+            // Display questions for creating a quiz
+            echo '<td><input type="checkbox" name="selected_questions[]" value="' . htmlspecialchars($questionID) . '"/></td>';
+            echo '<td></td>';
+            echo '<td></td>';
+        }
         echo '</td>';
         echo '</tr>';
         $index++;
     }
     echo '</table>';
+    if ($current_script === 'create_quiz_by_user.php') {
+        echo'<div class="submit">';
+        echo '<input type="submit" value="Create Quiz" " />';
+        echo '</div>';
+    }
+    echo '</form>';
 }
 
 /*select correct answer from answer table using answer id*/

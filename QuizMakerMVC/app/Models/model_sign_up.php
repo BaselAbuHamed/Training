@@ -1,5 +1,4 @@
 <?php
-
 function validateEmail($pdo,$email){
     // Check if email is unique
     $query = "SELECT * FROM user WHERE email = ?";

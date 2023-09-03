@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once '../classes/connect.php';
 include_once '../Models/model_sign_up.php';
 
@@ -106,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $response['status'] = "success";
         $response['message'] = "created account successfully";
-        header("Location: ../../public/index.php?success_message=" . urlencode(json_encode($response)));
+        header("Location: ../Views/sign_up.php?success_message=" . urlencode(json_encode($response)));
         //        echo json_encode($response);
         exit;
 

@@ -1,5 +1,4 @@
 <?php
-
 function saveQuiz($pdo,$userID,$quizName,$questions){
         // Insert the quiz response into the database
         $query = "INSERT INTO quizzes (userID, quizName) VALUES (:user_id, :quiz_name)";

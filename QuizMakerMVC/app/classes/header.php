@@ -1,6 +1,7 @@
 <?php
-//session_start();
-
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 // Check if the user is logged in
 $isLoggedIn = isset($_SESSION['username']);
 $username = '';
@@ -25,9 +26,7 @@ if (isset($_GET['logout'])) {
         <img src="/QuizMakerMVC/src/images/quiz_logo.png" alt="Logo" width="100px" height="100px"/>
     </div>
     <div class="app-name">
-        <p>Quiz
-            <span>Maker</span>
-        </p>
+        <p>Quiz <span>Maker</span></p>
     </div>
     <div class="log_out">
         <?php if ($isLoggedIn) : ?>

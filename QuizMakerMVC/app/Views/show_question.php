@@ -1,8 +1,12 @@
 <?php
-include '../Controllers/cont_show_question.php';
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
+
+include_once '../Controllers/cont_show_question.php';
+
+
 if (!isset($_SESSION['email'])) {
     $_SESSION['loginMessage'] = "Please log in to access this page.";
     header("Location: log_in.php");

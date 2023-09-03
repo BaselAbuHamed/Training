@@ -1,11 +1,8 @@
 <?php
-
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-
 if (!isset($_SESSION['email'])) {
-    $_SESSION['loginMessage'] = "Please log in to access this page.";
     header("Location: log_in.php");
     exit();
 }
@@ -15,17 +12,15 @@ if (!isset($_SESSION['email'])) {
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Quiz Questions and Correct Answers</title>
-    <script
-            src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <link rel="stylesheet"
-          href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <title>Quiz Maker</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../../src/script.js" type="text/javascript"></script>
     <link rel="stylesheet" href="../../src/style.css" type="text/css" />
 </head>
 <body>
+
+<?php include("../classes/header.php"); ?>
+
 <?php
 if (isset($_GET['error_message'])) {
     $error_message = json_decode(urldecode($_GET['error_message']), true);
@@ -51,15 +46,26 @@ if (isset($_GET['success_message'])) {
 }
 ?>
 
-<?php include("../classes/header.php"); ?>
-
 <?php include("../classes/side_nav.php"); ?>
 
-<div class="create-quiz-container">
-    <a href="/Internship/QuizMakerMVC/app/Views/create_quiz_random.php" id="create_user" >Create Quiz by random question</a>
-    <a href="/Internship/QuizMakerMVC/app/Views/create_quiz_by_user.php" id="create_random">Create Quiz by user select</a>
+<div class="quiz-form">
+    <div class="tittle">
+        <h1>Create a Quiz</h1>
+    </div>
+    <form id="quizForm" action="display_quiz.php" method="post">
+        <div class="num_field">
+            <input type="number" id="numQuestions" name="numQuestions" min="1" placeholder="Enter Number Of Question">
+            <select class="where" name="where" id="fieldSelect">
+                <option value="" selected>Choose a field</option>
+                <option value="mathematics">Mathematics</option>
+                <option value="physics">Physics</option>
+                <option value="biology">Biology</option>
+                <option value="chemistry">Chemistry</option>
+                <option value="technology">Technology</option>
+            </select>
+        </div>
+        <input type="submit" value="Create Quiz" />
+    </form>
 </div>
-
-
 </body>
 </html>

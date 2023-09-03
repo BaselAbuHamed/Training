@@ -1,5 +1,9 @@
 <?php
-session_start();
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 if (!isset($_SESSION['email'])) {
     $_SESSION['loginMessage'] = "Please log in to access this page.";
     header("Location: ../app/Views/log_in.php");
@@ -17,7 +21,7 @@ if (!isset($_SESSION['email'])) {
         <link rel="stylesheet" href="../src/style.css" type="text/css" />
     </head>
     <body>
-        <?php include("../app/classes/header.php"); ?>
+        <?php require_once '../app/classes/header.php'; ?>
         <?php
         if (isset($_GET['error_message'])) {
             $error_message = json_decode(urldecode($_GET['error_message']), true);
@@ -42,7 +46,8 @@ if (!isset($_SESSION['email'])) {
             echo '</div>';
         }
         ?>
-        <?php include("../app/classes/side_nav.php"); ?>
+
+        <?php require_once '../app/classes/side_nav.php'; ?>
 
         <div class="container">
             <div class="tittle">
@@ -92,9 +97,6 @@ if (!isset($_SESSION['email'])) {
                     <input type="submit" value="Submit" />
                 </div>
             </form>
-            <div class="redirect-button">
-                <a href="../app/Views/show_question.php">Show Questions</a>
-            </div>
         </div>
     </body>
 </html>

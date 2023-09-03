@@ -1,7 +1,6 @@
 <?php
-session_start();
 include_once '../classes/connect.php';
-include '../classes/error_log.php';
+include_once '../classes/error_log.php';
 include_once '../Models/model_update_question.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

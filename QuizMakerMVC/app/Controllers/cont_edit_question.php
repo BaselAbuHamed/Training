@@ -1,7 +1,6 @@
 <?php
-session_start();
-include '../classes/connect.php';
-include '../classes/error_log.php';
+include_once '../classes/connect.php';
+include_once '../classes/error_log.php';
 
 include_once '../Models/model_edit_question.php';
 
@@ -32,8 +31,6 @@ function getCorrectAnswerIndex() {
 
 function getAnsID($choice){
     $pdo = db_connect();
-//    logError(getQuestionID());
-//    logError($choice);
     return getAnswerID($pdo, getQuestionID(), $choice);
 }
 

@@ -3,11 +3,6 @@ $(document).ready(function() {
     $('.remove').on('click', removeChoice);
     setupValidation();
 
-    $("#quizForm").submit(function(e) {
-        e.preventDefault();
-        generateQuiz(); // Call the generateQuiz function
-    });
-
 });
 
 
@@ -153,6 +148,8 @@ function validateForm() {
 // Add this function to handle the delete action
 function deleteQuestion(questionID,questions) {
 
+    event.preventDefault();
+
     const confirmationDialog = $('<div title="Confirm Delete">Are you sure you want to delete this question?</div>').dialog({
         autoOpen: false,
         modal: true,
@@ -168,7 +165,7 @@ function deleteQuestion(questionID,questions) {
                         $("#questionRow_" + questionID).remove();
                         alert("Question removed successfully");
                         location.reload();
-                        },
+                    },
                     error: function(xhr, status, error) {
                         console.log("Error deleting question:", error);
                         alert("An error occurred while deleting the question. Please try again.");
@@ -184,6 +181,7 @@ function deleteQuestion(questionID,questions) {
 
     confirmationDialog.dialog("open");
 }
+
 
 function updateForm() {
     setupValidation();
@@ -214,18 +212,4 @@ function updateForm() {
     }
     const hiddenData = document.getElementById("hiddenData");
     hiddenData.setAttribute("value",  JSON.stringify(Data));
-}
-
-function generateQuiz() {
-    const formData = $("#quizForm").serialize();
-
-    console.log("test");
-    $.ajax({
-        type: "POST",
-        url: "/Internship/QuizMakerMVC/app/Controllers/cont_create_quiz.php", // Update the URL accordingly
-        data: formData,
-        success: function(response) {
-            $("#questionsContainer").html(response);
-        }
-    });
 }

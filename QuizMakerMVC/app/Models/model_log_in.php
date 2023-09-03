@@ -1,7 +1,8 @@
 <?php
-session_start();
-function login($pdo,$email,$password)
-{
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+function login($pdo,$email,$password){
     // Prepare the SQL statement
     $stmt = $pdo->prepare("SELECT * FROM user WHERE email = :email");
     $stmt->bindParam(':email', $email);
@@ -19,7 +20,6 @@ function login($pdo,$email,$password)
         $_SESSION['email'] = $user[2];
         $_SESSION['username'] = $user[1];
 
-        // Redirect to the home page or any other page you desire
         return true;
         exit();
     }

@@ -1,10 +1,11 @@
 <?php
-
-include_once '../Controllers/cont_edit_question.php';
-require_once '../classes/error_log.php';
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
+
+include_once '../Controllers/cont_edit_question.php';
+include_once '../classes/error_log.php';
+
 if (!isset($_SESSION['email'])) {
     header("Location: log_in.php");
     exit();

@@ -1,7 +1,13 @@
 <?php
-session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
 require_once '../classes/connect.php';
-include_once '../Models/model_add_question.php';
+require_once '../Models/model_add_question.php';
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 
 $pdo = db_connect();
@@ -75,13 +81,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if(insertQuestion($pdo,$question,$field,$choices,$correctAnswerNumber,$userID)){
-        $response['success'] = "success";
+        $response['status'] = "success";
         $response['message'] = "The question has been added successfully";
         header("Location: ../../public/index.php?success_message=" . urlencode(json_encode($response)));
     }else{
         $response['status'] = "error";
         $response['message'] = "Error adding question.";
-        header("Location: ../../public/index.php?success_message=" . urlencode(json_encode($response)));
+        header("Location: ../../public/index.php?error_message=" . urlencode(json_encode($response)));
     }
 }else {
     $response['status'] = "error";
