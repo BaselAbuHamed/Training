@@ -6,11 +6,7 @@ require_once '../Models/model_solve_quiz.php';
 function quiz($quiz_id){
     $pdo = db_connect();
 
-    questionID($pdo,$quiz_id);
-
-    getQuizName($pdo,$quiz_id);
-
-    displayQuestionsOnly($pdo, json_encode(getQuizName($pdo,$quiz_id)),questionID($pdo,$quiz_id));
+    displayQuestionsOnly($pdo, json_encode(getQuizName($pdo,$quiz_id)),questionID($pdo,$quiz_id),$quiz_id);
 }
 
 

@@ -56,13 +56,15 @@ function displayQuestion($pdo, $questions,$show) {
     echo '</div>';
 }
 
-function displayQuestionsOnly($pdo, $quizName, $questions) {
+function displayQuestionsOnly($pdo, $quizName, $questions,$quiz_id) {
     $name = json_decode($quizName, true);
 
+    echo print_r($name,true);
     echo '<div class="container-quiz">';
     echo '<form method="post" action="../Controllers/cont_count_score.php">';
     echo '<div class="title">';
     echo '<input type="text" name="quiz-name" value="' . htmlspecialchars($name[0]['quizName']) . '" readonly />';
+    echo '<input type="hidden" name="quiz_id" value="'.$quiz_id.'" />';
     echo '</div>';
 
     foreach ($questions as $question) {

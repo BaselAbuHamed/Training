@@ -28,14 +28,3 @@ function getCorrectAnswerID($pdo, $questionID) {
     return $correctAnswer['correctAnswer'];
 }
 
-function saveScore($pdo,$score,$userID,$quizID){
-
-    $query="INSERT INTO user_score (quizID,userID,score)
-            VALUES (:quizID ,:userID ,:score)";
-    $stmt = $pdo->prepare($query);
-    $stmt->bindParam(':quizID', $quizID, PDO::PARAM_INT);
-    $stmt->bindParam(':userID', $userID, PDO::PARAM_INT);
-    $stmt->bindParam(':score', $score, PDO::PARAM_INT);
-
-    $stmt->execute();
-}
