@@ -1,10 +1,9 @@
 <?php
-include_once '../classes/connect.php';
-include_once '../classes/error_log.php';
-include_once '../Models/model_update_question.php';
+require_once '../classes/connect.php';
+require_once '../classes/error_log.php';
+require_once '../Models/model_update_question.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
 
     $questionID = isset($_POST['questionID']) ? $_POST['questionID'] : null;
     $newQuestion = isset($_POST['question']) ? $_POST['question'] : null;
@@ -12,7 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $newCorrectAnswerIndex = isset($_POST['correctAnswer']) ? $_POST['correctAnswer'] : null;
     $choiceIDs = isset($_POST["choice"]) ? $_POST["choice"] : array();
     $hiddenData = isset($_POST['hiddenData']) ? $_POST['hiddenData'] : null;
-
 
     if ($newQuestion==null){
         $response['status'] = "error";

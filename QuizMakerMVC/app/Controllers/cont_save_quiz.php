@@ -3,9 +3,9 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-include_once '../classes/error_log.php';
-include_once '../classes/connect.php';
-include '../Models/model_save_quiz.php';
+require_once '../classes/error_log.php';
+require_once '../classes/connect.php';
+require_once '../Models/model_save_quiz.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pdo = db_connect();

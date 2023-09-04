@@ -1,6 +1,6 @@
 <?php
-include_once '../classes/connect.php';
-include_once '../Models/model_sign_up.php';
+require_once '../classes/connect.php';
+require_once '../Models/model_sign_up.php';
 
 // Define variables and set to empty values
 $username = $email = $password = $confirmPassword = "";
@@ -22,7 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $response['status'] = "error";
         $response['message'] = "Username is required";
         header("Location: ../Views/sign_up.php?error_message=" . urlencode(json_encode($response)));
-//        echo json_encode($response);
         exit;
 
     } else {
@@ -32,9 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $response['status'] = "error";
             $response['message'] = "Invalid username format";
             header("Location: ../Views/sign_up.php?error_message=" . urlencode(json_encode($response)));
-//        echo json_encode($response);
             exit;
-
         }
     }
 
@@ -43,7 +40,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $response['status'] = "error";
         $response['message'] = "Email is required";
         header("Location: ../Views/sign_up.php?error_message=" . urlencode(json_encode($response)));
-//        echo json_encode($response);
         exit;
 
     } else {
@@ -53,7 +49,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $response['status'] = "error";
             $response['message'] = "Invalid email format";
             header("Location: ../Views/sign_up.php?error_message=" . urlencode(json_encode($response)));
-//        echo json_encode($response);
             exit;
 
         }
@@ -64,7 +59,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $response['status'] = "error";
         $response['message'] = "Password is required";
         header("Location: ../Views/sign_up.php?error_message=" . urlencode(json_encode($response)));
-//        echo json_encode($response);
         exit;
 
     } else {
@@ -74,7 +68,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $response['status'] = "error";
             $response['message'] = "Password must be at least 8 characters long";
             header("Location: ../Views/sign_up.php?error_message=" . urlencode(json_encode($response)));
-//        echo json_encode($response);
             exit;
         }
     }
@@ -84,7 +77,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $response['status'] = "error";
         $response['message'] = "Please confirm your password";
         header("Location: ../Views/sign_up.php?error_message=" . urlencode(json_encode($response)));
-//        echo json_encode($response);
         exit;
     } else {
         $confirmPassword = sanitizeInput($_POST["confirm_password"]);
@@ -93,7 +85,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $response['status'] = "error";
             $response['message'] = "Passwords do not match";
             header("Location: ../Views/sign_up.php?error_message=" . urlencode(json_encode($response)));
-//        echo json_encode($response);
             exit;
         }
     }
@@ -106,15 +97,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $response['status'] = "success";
         $response['message'] = "created account successfully";
         header("Location: ../Views/sign_up.php?success_message=" . urlencode(json_encode($response)));
-        //        echo json_encode($response);
         exit;
 
     } else {
         $response['status'] = "error";
         $response['message'] = "Email already exists";
         header("Location: ../Views/sign_up.php?error_message=" . urlencode(json_encode($response)));
-
-        //        echo json_encode($response);
         exit;
 
     }

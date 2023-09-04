@@ -1,8 +1,7 @@
 <?php
-include_once '../classes/connect.php';
-include_once '../classes/error_log.php';
-
-include_once '../Models/model_edit_question.php';
+require_once '../classes/connect.php';
+require_once '../classes/error_log.php';
+require_once '../Models/model_edit_question.php';
 
 function getQuestionID(){
     if (isset($_GET['questionID'])) {

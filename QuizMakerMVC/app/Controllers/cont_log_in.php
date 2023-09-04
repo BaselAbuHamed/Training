@@ -1,7 +1,7 @@
 <?php
 // Include necessary files
-include_once '../classes/connect.php';
-include_once '../Models/model_log_in.php';
+require_once '../classes/connect.php';
+require_once '../Models/model_log_in.php';
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

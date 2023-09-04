@@ -1,9 +1,11 @@
 <?php
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
-}include_once '../classes/connect.php';
-include_once '../classes/error_log.php';
-include_once '../Models/modal_delete_question.php';
+}
+
+require_once '../classes/connect.php';
+require_once '../classes/error_log.php';
+require_once '../Models/modal_delete_question.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pdo = db_connect();

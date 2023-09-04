@@ -530,8 +530,13 @@ input[type="number"]{
     background-color: #D3D3D3	;
     border-radius: 10px;
 }
-.container-quiz input[type=radio]{
-    display: none;
+.container-quiz .choice-input {
+    padding:10px;
+    /*text-align: center;*/
+    justify-content: flex-start;
+    gap: 20px;
+    background-color: #D3D3D3	;
+    border-radius: 10px;
 }
 .container-quiz input[type=text]{
     background-color: rgba(0, 0, 0, 0);
@@ -699,7 +704,6 @@ select {
     display: inline-block;
     margin-top: 10px;
 }
-
 .quiz-design{
     background-color: #999999;
     display: flex;

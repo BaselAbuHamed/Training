@@ -1,6 +1,6 @@
 <?php
-include_once '../classes/connect.php';
-include_once '../Models/model_show_question.php';
+require_once '../classes/connect.php';
+require_once '../Models/model_show_question.php';
 function getData($field){
     $pdo = db_connect();
     return getQuestionsByField($pdo, $field);

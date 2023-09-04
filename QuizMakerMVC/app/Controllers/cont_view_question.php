@@ -1,6 +1,6 @@
 <?php
-include_once '../classes/connect.php';
-include_once '../Models/model_view_question.php';
+require_once '../classes/connect.php';
+require_once '../Models/model_view_question.php';
 
 function getDetails(){
     $pdo = db_connect();

@@ -29,7 +29,6 @@ if (!isset($_SESSION['email'])) {
 
    <?php require_once '../Controllers/cont_show_quizzes.php'; ?>
 
-
 </div>
 </body>
 </html>
