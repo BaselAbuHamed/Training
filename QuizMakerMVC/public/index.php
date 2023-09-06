@@ -3,12 +3,15 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-
+if (isset($_SESSION['user_type'])&&$_SESSION['user_type']=="student") {
+    header("Location: /Internship/QuizMakerMVC/app/Views/show_quizzes.php");
+}
 if (!isset($_SESSION['email'])) {
     $_SESSION['loginMessage'] = "Please log in to access this page.";
     header("Location: ../app/Views/log_in.php");
     exit();
 }
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">

@@ -11,6 +11,9 @@ if (!isset($_SESSION['email'])) {
     header("Location: log_in.php");
     exit();
 }
+if (isset($_SESSION['user_type'])&&$_SESSION['user_type']=="student") {
+    header("Location: /Internship/QuizMakerMVC/app/Views/show_quizzes.php");
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -56,37 +59,73 @@ if (!isset($_SESSION['email'])) {
             <div id="mathematics" class="tabContent">
                 <?php
                 $field = getData("mathematics");
-                printTable($field);
+                if (empty($field)){
+                    echo '<div class="tittle">';
+                    echo "<h1>no question</h1>";
+                    echo '</div>';
+                }else{
+                    printTable($field);
+                }
                 ?>
             </div>
             <div id="physics" class="tabContent">
                 <?php
                 $field = getData("physics");
-                printTable($field);
+                if (empty($field)){
+                    echo '<div class="tittle">';
+                    echo "<h1>no question</h1>";
+                    echo '</div>';
+                }else{
+                    printTable($field);
+                }
                 ?>
             </div>
             <div id="biology" class="tabContent">
                 <?php
                 $field = getData("biology");
-                printTable($field);
+                if (empty($field)){
+                    echo '<div class="tittle">';
+                    echo "<h1>no question</h1>";
+                    echo '</div>';
+                }else{
+                    printTable($field);
+                }
                 ?>
             </div>
             <div id="technology" class="tabContent">
                 <?php
                 $field = getData("technology");
-                printTable($field);
+                if (empty($field)){
+                    echo '<div class="tittle">';
+                    echo "<h1>no question</h1>";
+                    echo '</div>';
+                }else{
+                    printTable($field);
+                }
                 ?>
             </div>
             <div id="chemistry" class="tabContent">
                 <?php
                 $field = getData("chemistry");
-                printTable($field);
+                if (empty($field)){
+                    echo '<div class="tittle">';
+                    echo "<h1>no question</h1>";
+                    echo '</div>';
+                }else{
+                    printTable($field);
+                }
                 ?>
             </div>
             <div id="allQuestion" class="tabContent">
                 <?php
-                $field =getAllData();
-                printTable($field);
+                $field = getAllData();
+                if (empty($field)){
+                    echo '<div class="tittle">';
+                    echo "<h1>no question</h1>";
+                    echo '</div>';
+                }else{
+                    printTable($field);
+                }
                 ?>
             </div>
         </div>

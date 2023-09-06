@@ -17,14 +17,17 @@ function displayQuestion($pdo, $questions,$show) {
     echo '<input type="text" name="quiz-name" placeholder="Enter Quiz Name"/>';
 
     foreach ($questions as $question) {
+
         $questionID = ($show==1) ? $question['questionID'] : $question;
+        $questionText = getQuestion($pdo, $questionID)[0]['question'];
+
         $token=($show==1) ? 1 : 0;
         echo '<input type="hidden" name="token" value="' . $token . '" />';
 
         echo '<div class="question-design">';
         echo '<label for="question">Question:</label>';
         echo '<div class="question">';
-        echo '<input type="text" name="questions[' . htmlspecialchars($questionID) . ']" value="' . htmlspecialchars($questionID) . '" readonly />';
+        echo '<input type="text" name="questions[' . htmlspecialchars($questionID) . ']" value="' . htmlspecialchars($questionText) . '" readonly />';
         echo '</div>';
 
         $query = "SELECT * FROM answers WHERE questionID = :questionID ORDER BY RAND()";
@@ -56,15 +59,14 @@ function displayQuestion($pdo, $questions,$show) {
     echo '</div>';
 }
 
-function displayQuestionsOnly($pdo, $quizName, $questions,$quiz_id) {
+function displayQuestionsOnly($pdo, $quizName, $questions, $quiz_id) {
     $name = json_decode($quizName, true);
 
-    echo print_r($name,true);
     echo '<div class="container-quiz">';
     echo '<form method="post" action="../Controllers/cont_count_score.php">';
     echo '<div class="title">';
     echo '<input type="text" name="quiz-name" value="' . htmlspecialchars($name[0]['quizName']) . '" readonly />';
-    echo '<input type="hidden" name="quiz_id" value="'.$quiz_id.'" />';
+    echo '<input type="hidden" name="quiz_id" value="' . $quiz_id . '" />';
     echo '</div>';
 
     foreach ($questions as $question) {
@@ -77,27 +79,29 @@ function displayQuestionsOnly($pdo, $quizName, $questions,$quiz_id) {
         echo '<input type="text" name="questions[' . htmlspecialchars($questionID) . ']" value="' . htmlspecialchars($questionText) . '" readonly />';
         echo '</div>';
 
-        $query = "SELECT * FROM answers WHERE questionID = :questionID ORDER BY RAND()";
-        $stmt = $pdo->prepare($query);
-        $stmt->bindValue(':questionID', $questionID, PDO::PARAM_INT);
-        $stmt->execute();
-        $answers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $answers = getAnswers($pdo, $questionID);
 
         echo '<label id="choice" for="choices">Choices:</label>';
         echo '<div class="choices" id="choices-container">';
         foreach ($answers as $answer) {
-
             $answerValue = htmlspecialchars($answer['answer']);
-            $answerID="answersIDs[". $answer['answerID'] ."]";
+            $answerID = "answersIDs[" . $answer['answerID'] . "]";
             $choiceName = "answers[" . $questionID . "]";
 
             echo '<div class="choice-input" data-choice="' . $answerID . '">';
 
-            echo '<input type="hidden" name="'.$answerID.'"/>';
+            echo '<input type="hidden" name="' . $answerID . '" />';
+
+            // Check if user_answers session variable is set and if this answer is selected
+            if (isset($_SESSION['user_answers']) && isset($_SESSION['user_answers'][$questionID]) && $_SESSION['user_answers'][$questionID] == $answer['answerID']) {
+                $checked = 'checked';
+            } else {
+                $checked = '';
+            }
 
             echo '<input type="radio" name="' . $choiceName .
-                    '" value="' . $answer['answerID'] .
-                '" data-choice="' . $answer['answerID'] . '" />';
+                '" value="' . $answer['answerID'] .
+                '" data-choice="' . $answer['answerID'] . '" ' . $checked . ' />';
 
             echo '<span class="Q">' . $answerValue . '</span>';
             echo '</div>';
@@ -120,4 +124,14 @@ function getQuestion($pdo,$questionID){
     $result=$stmt->fetchAll(PDO::FETCH_ASSOC);
 
     return $result ;
+}
+
+function getAnswers($pdo,$questionID){
+    $query = "SELECT * FROM answers WHERE questionID = :questionID ORDER BY RAND()";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindValue(':questionID', $questionID, PDO::PARAM_INT);
+    $stmt->execute();
+    $answers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $answers;
 }

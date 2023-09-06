@@ -7,16 +7,26 @@ function validateEmail($pdo,$email){
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
-function insertUser($pdo, $username, $email, $password) {
+function validateUserName($pdo,$userName){
+    // Check if user name is unique
+    $query = "SELECT * FROM user WHERE userName = ?";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([$userName]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
+function insertUser($pdo, $username,$email, $password, $type ) {
     // Insert user data into the database
     // Prepare the INSERT statement
-    $stmt = $pdo->prepare("INSERT INTO user (userName, email, `passward`) VALUES (?, ?, ?)");
+    $stmt = $pdo->prepare("INSERT INTO user (userName,  email, passward ,user_type ) VALUES (?,?,?,?)");
 
     // Bind the parameters
     $stmt->bindParam(1, $username, PDO::PARAM_STR);
     $stmt->bindParam(2, $email, PDO::PARAM_STR);
     $encryptedPassword = encryptPassword($password);
     $stmt->bindParam(3, $encryptedPassword, PDO::PARAM_STR);
+    $stmt->bindParam(4, $type, PDO::PARAM_STR);
+
 
     // Execute the statement
     if ($stmt->execute()) {

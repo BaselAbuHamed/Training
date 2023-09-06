@@ -10,6 +10,9 @@ if (!isset($_SESSION['email'])) {
     header("Location: log_in.php");
     exit();
 }
+if (isset($_SESSION['user_type'])&&$_SESSION['user_type']=="student") {
+    header("Location: /Internship/QuizMakerMVC/app/Views/show_quizzes.php");
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -62,7 +65,7 @@ if (isset($_GET['success_message'])) {
         <a class="tabLinks" href="#biology">Biology</a>
         <a class="tabLinks" href="#technology">Technology</a>
         <a class="tabLinks" href="#chemistry">Chemistry</a>
-        <a class="tabLinks" href="#allQuestion">All Question</a>
+<!--        <a class="tabLinks" href="#allQuestion">All Question</a>-->
     </div>
     <div id="mathematics" class="tabContent">
         <?php
@@ -124,18 +127,18 @@ if (isset($_GET['success_message'])) {
         }
         ?>
     </div>
-    <div id="allQuestion" class="tabContent">
-        <?php
-        $field = getAllData();
-        if (empty($field)){
-            echo '<div class="tittle">';
-            echo "<h1>no question</h1>";
-            echo '</div>';
-        }else{
-            printTable($field);
-        }
-        ?>
-    </div>
+<!--    <div id="allQuestion" class="tabContent">-->
+<!--        --><?php
+//        $field = getAllData();
+//        if (empty($field)){
+//            echo '<div class="tittle">';
+//            echo "<h1>no question</h1>";
+//            echo '</div>';
+//        }else{
+//            printTable($field);
+//        }
+//        ?>
+<!--    </div>-->
 </div>
 </body>
 </html>

@@ -18,37 +18,43 @@ label {
 }
 
 /* --------------------------side nav design-------------------------- */
-#mySidenav a {
-    margin-top: 150px;
-    position: fixed;
-    left: -150px;
-    transition: 0.3s;
-    padding: 15px;
-    width: 150px;
-    text-decoration: none;
-    font-size: 20px;
-    color: white;
-    border-radius: 0 5px 5px 0;
-}
-#mySidenav a:hover {
-    left: 0;
-}
-#about {
-    top: 20px;
-    background-color: #04AA6D;
-}
-#blog {
-    top: 80px;
-    background-color: #2196F3; /* Blue */
-}
-#projects {
-    top: 140px;
-    background-color: #f44336; /* Red */
-}
-#contact {
-    top: 200px;
-    background-color: #555 /* Light Black */
-}
+    #mySidenav a {
+        margin-top: 150px;
+        position: fixed;
+        /*left: -150px;*/
+        left: 0;
+        transition: left 0.3s;
+        padding: 15px;
+        width: 150px;
+        text-decoration: none;
+        font-size: 20px;
+        color: white;
+        border-radius: 0 5px 5px 0;
+    }
+
+    /*#mySidenav a:hover {*/
+    /*    left: 0;*/
+    /*}*/
+
+    #about {
+        top: 20px;
+        background-color: #04AA6D;
+    }
+
+    #blog {
+        top: 80px;
+        background-color: #2196F3; /* Blue */
+    }
+
+    #projects {
+        top: 140px;
+        background-color: #f44336; /* Red */
+    }
+
+    #contact {
+        top: 200px;
+        background-color: #555; /* Light Black */
+    }
 /* --------------------------side nav design-------------------------- */
 
 /* --------------------------header design-------------------------- */
@@ -97,10 +103,10 @@ label {
 /* --------------------------log in design-------------------------- */
 .login-container {
     width: 300px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 110px;
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
     padding: 20px;
     background-color: #ffffff;
     border-radius: 5px;
@@ -127,10 +133,10 @@ label {
     padding: 20px;
     background-color: #fff;
     border-radius: 5px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 70px;
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .registration-section{
@@ -147,6 +153,18 @@ label {
 }
 .signup_container a:hover {
     text-decoration: underline;
+}
+.type-account{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-direction: column;
+}
+
+.type{
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 /* --------------------------sign up design-------------------------- */
 
@@ -712,4 +730,16 @@ select {
     padding: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     border-radius: 25px 15px;
+}
+
+.success{
+    display: flex;
+    margin-top: 70px;
+    font-size: 22px;
+    flex-direction: column;
+    font-family: "Times New Roman", Times, serif;
+    background-color: #04AA6D;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
 }

@@ -2,31 +2,25 @@
 // Include necessary files
 require_once '../classes/connect.php';
 require_once '../Models/model_log_in.php';
+require_once '../classes/error_log.php';
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
+    $emailOrUsername = $_POST['email'];
     $password = $_POST['password'];
-    $_SESSION['email'] = $email;
+    $_SESSION['email'] = $emailOrUsername;
 
     // Check if the "Remember Me" checkbox is checked
     if (isset($_POST['remember'])) {
-        // Set a cookie with the user's email and password (replace 3600 with the desired cookie expiration time)
-        setcookie('email', $email, time() + 3600 * 60);
+        // Set a cookie with the user's email/username and password (replace 3600 with the desired cookie expiration time)
+        setcookie('email', $emailOrUsername, time() + 3600 * 60);
         setcookie('password', $password, time() + 3600 * 60);
     }
 
-    // Check if the email and password are not empty
-    if (empty($email) || empty($password)) {
-
+    // Check if the email/username and password are not empty
+    if (empty($emailOrUsername) || empty($password)) {
         $response['status'] = "error";
-        $response['message'] = "Please enter both email and password.";
-        header("Location: ../Views/log_in.php?error_message=" . urlencode(json_encode($response)));
-        exit;
-    }if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-
-        $response['status'] = "error";
-        $response['message'] = "Invalid email format.";
+        $response['message'] = "Please enter both email/username and password.";
         header("Location: ../Views/log_in.php?error_message=" . urlencode(json_encode($response)));
         exit;
     }
@@ -34,13 +28,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         $pdo = db_connect();
 
-        $loginResult = login($pdo, $email, $password);
+        // Attempt to log in using email/username and password
+        $loginResult = login($pdo, $emailOrUsername, $password);
 
         if ($loginResult) {
             header("Location: ../../public/index.php");
         } else {
             $response['status'] = "error";
-            $response['message'] = "Invalid email or password.";
+            $response['message'] = "Invalid email/username or password.";
             header("Location: ../Views/log_in.php?error_message=" . urlencode(json_encode($response)));
             exit;
         }
@@ -49,3 +44,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Database Error: " . $e->getMessage());
     }
 }
+?>

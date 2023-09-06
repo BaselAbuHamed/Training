@@ -17,6 +17,9 @@ else{
         echo '<span>' . htmlspecialchars($quiz['quizName']) . '</span>';
         echo '<label >High Score:</label>';
         echo '<span>' . getHighestScore($quiz['quizID']) . '</span>';
+        if (getHighestScore($quiz['quizID'])!="try attempt quiz"){
+            echo '<a class="quiz-button" href="/Internship /QuizMakerMVC/app/Views/previous _attempts.php?quiz_id=' . $quiz['quizID'] . '">previous  attempts</a>';
+        }
         echo '<a class="quiz-button" href="../Views/solve_quiz.php?quiz_id=' . $quiz['quizID'] . '">Solve Quiz</a>';
         echo '</div>';
     endforeach;

@@ -9,6 +9,9 @@ if (!isset($_SESSION['email'])) {
     header("Location: log_in.php");
     exit();
 }
+if (isset($_SESSION['user_type'])&&$_SESSION['user_type']=="student") {
+    header("Location: /Internship/QuizMakerMVC/app/Views/show_quizzes.php");
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -41,7 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $response['status'] = "error";
             $response['message'] = "Please enter a value for 'where' field.";
             header("Location: create_quiz_random.php?error_message=" . urlencode(json_encode($response)));
-//        echo json_encode($response);
             exit;
         }
 

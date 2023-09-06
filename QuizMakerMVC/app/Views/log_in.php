@@ -15,6 +15,7 @@
             $error_message = json_decode(urldecode($_GET['error_message']), true);
             $status = $error_message['status'];
             $message = $error_message['message'];
+
             echo '<div class="error-message" id="hidden">';
             echo '<span class="closeBtn" onclick="this.parentElement.style.display=\'none\';">&times;</span>';
             echo htmlspecialchars($message);
@@ -23,16 +24,16 @@
         ?>
         <?php
         if (isset($_GET['success_message'])) {
-            $success_message = json_decode(urldecode($_GET['error_message']), true);
+            $success_message = json_decode(urldecode($_GET['success_message']), true);
             $status = $success_message['status'];
             $message = $success_message['message'];
-            echo '<div class="success_message" id="hidden">';
+
+            echo '<div class="success-message">';
             echo '<span class="closeBtn" onclick="this.parentElement.style.display=\'none\';">&times;</span>';
             echo htmlspecialchars($message);
             echo '</div>';
         }
         ?>
-        <?php include("../classes/side_nav.php"); ?>
 
         <div class="login-container">
             <form action="../Controllers/cont_log_in.php" method="post">
@@ -41,7 +42,7 @@
                         <h2>Log In</h2>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="email" placeholder="Email"
+                        <input type="text" name="email" placeholder="Email / User Name"
                             value="<?php echo isset($_COOKIE['email']) ? $_COOKIE['email'] : ''; ?>">
                     </div>
                     <div class="form-group">

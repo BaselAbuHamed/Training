@@ -23,12 +23,17 @@ if (!isset($_SESSION['email'])) {
 </head>
 <body>
 <?php include("../classes/header.php"); ?>
-<?php include("../classes/side_nav.php"); ?>
+
+
+<?php
+if (isset($_SESSION['user_type']) && !$_SESSION['user_type']=="student") {
+    include("../classes/side_nav.php");
+}
+?>
 
 <div class="container-show">
-
-   <?php require_once '../Controllers/cont_show_quizzes.php'; ?>
-
+    <?php require_once '../Controllers/cont_show_quizzes.php'; ?>
 </div>
+
 </body>
 </html>

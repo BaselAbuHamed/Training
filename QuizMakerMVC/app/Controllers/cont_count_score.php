@@ -5,6 +5,8 @@ if (session_status() == PHP_SESSION_NONE) {
 
 require_once '../classes/connect.php';
 require_once '../Models/model_count_score.php';
+require_once '../classes/error_log.php';
+
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $questions = $_POST['questions'];
@@ -12,17 +14,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $quizID=$_POST['quiz_id'];
     $userID=$_SESSION['userID'];
 
+    logError(print_r($questions,true));
+    logError(print_r($userAnswers,true));
+
+
     if (empty($userAnswers)){
         $response['status'] = "error";
         $response['message'] = "Please solve all question.";
-        header("Location: ../Views/solve_quiz.php?quiz_id=43&error_message=" . urlencode(json_encode($response)));
+        $_SESSION['user_answers'] = $userAnswers;
+
+        header("Location: ../Views/solve_quiz.php?quiz_id=" . $quizID . "&error_message=" . urlencode(json_encode($response)));
+        exit;
+    }
+    if (count($userAnswers) < count($questions)){
+        $response['status'] = "error";
+        $response['message'] = "Please solve all question.";
+        $_SESSION['user_answers'] = $userAnswers;
+        header("Location: ../Views/solve_quiz.php?quiz_id=" . $quizID . "&error_message=" . urlencode(json_encode($response)));
         exit;
     }
 
+
     $pdo = db_connect();
 
-    echo print_r($userAnswers,true);
-    echo print_r(array_keys($questions),true);
 
     // Calculate the score
     $score = calculateScore($pdo, array_keys($questions), $userAnswers);
@@ -32,6 +46,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     echo '</div>';
 
     saveScore($pdo,$score,$userID,$quizID,array_keys($questions),$userAnswers);
+
+    unset($_SESSION['user_answers']);
+
+    $response['status'] = "success";
+    $response['message'] = "your scour." . $score . "/" . count($questions);
+    header("Location: ../Views/solve_quiz.php?quiz_id=" . $quizID . "&success_message=" . urlencode(json_encode($response)));
+    exit;
 }
 
 function saveScore($pdo,$score,$userID,$quizID,$questions,$userAnswers){
@@ -59,23 +80,6 @@ function saveScore($pdo,$score,$userID,$quizID,$questions,$userAnswers){
         $stmt->bindParam(':userScoreID', $userScoreID, PDO::PARAM_INT);
         $stmt->bindParam(':questionID', $questionID, PDO::PARAM_INT);
         $stmt->bindParam(':answerID', $userAnswers[$questionID], PDO::PARAM_INT);
-
-        if ($stmt->execute()) {
-            echo "Record inserted successfully.";
-        } else {
-            echo "Error inserting record: " . $stmt->errorInfo()[2];
-        }
+        $stmt->execute();
     }
-
-
-
-
 }
-
-//function savePreviousAtt($pdo,$question,$answer,){{
-//
-//}
-
-
-
-

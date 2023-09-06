@@ -3,12 +3,12 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 // Check if the user is logged in
-$isLoggedIn = isset($_SESSION['username']);
+$isLoggedIn = isset($_SESSION['userName']);
 $username = '';
 
 if ($isLoggedIn) {
     // Retrieve the username from the session
-    $username = $_SESSION['username'];
+    $username = $_SESSION['userName'];
 }
 
 // Logout functionality
@@ -16,7 +16,7 @@ if (isset($_GET['logout'])) {
     // Destroy the session
     session_destroy();
     // Redirect to the login page
-    header("Location: ../../public/index.php");
+    header("Location: /Internship/QuizMakerMVC/app/Views/log_in.php");
     exit;
 }
 ?>
