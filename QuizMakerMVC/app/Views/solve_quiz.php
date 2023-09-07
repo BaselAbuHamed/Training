@@ -11,9 +11,6 @@ if (!isset($_SESSION['email'])) {
     header("Location: log_in.php");
     exit();
 }
-//if (isset($_SESSION['user_type'])&&$_SESSION['user_type']=="student") {
-//    header("Location: /Internship/QuizMakerMVC/app/Views/show_quizzes.php");
-//}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -31,35 +28,35 @@ if (!isset($_SESSION['email'])) {
 <body>
 <?php include("../classes/header.php"); ?>
 <?php
-if (isset($_GET['error_message'])) {
-    $error_message = json_decode(urldecode($_GET['error_message']), true);
-    $status = $error_message['status'];
-    $message = $error_message['message'];
-    echo '<div class="error-message" id="hidden">';
-    echo '<span class="closeBtn" onclick="this.parentElement.style.display=\'none\';">&times;</span>';
-    echo htmlspecialchars($message);
-    echo '</div>';
-}
-?>
+//if (isset($_GET['error_message'])) {
+//    $error_message = json_decode(urldecode($_GET['error_message']), true);
+//    $status = $error_message['status'];
+//    $message = $error_message['message'];
+//    echo '<div class="error-message" id="hidden">';
+//    echo '<span class="closeBtn" onclick="this.parentElement.style.display=\'none\';">&times;</span>';
+//    echo htmlspecialchars($message);
+//    echo '</div>';
+//}
+//?>
 <?php
-if (isset($_GET['success_message'])) {
-    $success_message = json_decode(urldecode($_GET['success_message']), true);
-    $status = $success_message['status'];
-    $message = $success_message['message'];
-
-    echo '<div class="success">';
-    echo htmlspecialchars($message);
-    echo '<div class="back">';
-    echo '<a id="backTo" href="/Internship/QuizMakerMVC/app/Views/show_quizzes.php">back</a>';
-    echo   '</div>';
-    echo '</div>';
-}
-?>
-<?php
-if (isset($_SESSION['user_type']) && !$_SESSION['user_type']=="student") {
-    include("../classes/side_nav.php");
-}
-?>
+//if (isset($_GET['success_message'])) {
+//    $success_message = json_decode(urldecode($_GET['success_message']), true);
+//    $status = $success_message['status'];
+//    $message = $success_message['message'];
+//
+//    echo '<div class="success">';
+//    echo htmlspecialchars($message);
+//    echo '<div class="back">';
+//    echo '<a id="backTo" href="/Internship/QuizMakerMVC/app/Views/show_quizzes.php">back</a>';
+//    echo   '</div>';
+//    echo '</div>';
+//}
+//?>
+    <?php
+        if (isset($_SESSION['user_type']) && !$_SESSION['user_type']=="student") {
+        include("../classes/side_nav.php");
+        }
+    ?>
 
     <?php
     if (isset($_GET['quiz_id'])) {

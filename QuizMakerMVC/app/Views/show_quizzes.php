@@ -26,7 +26,7 @@ if (!isset($_SESSION['email'])) {
 
 
 <?php
-if (isset($_SESSION['user_type']) && !$_SESSION['user_type']=="student") {
+if (isset($_SESSION['user_type']) && $_SESSION['user_type']!="student") {
     include("../classes/side_nav.php");
 }
 ?>

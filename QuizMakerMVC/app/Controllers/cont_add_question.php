@@ -26,19 +26,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-//    $allNotNull = true;
-//    foreach ($choices as $choiceID) {
-//        if (empty($choiceID)) {
-//            $allNotNull = false;
-//            break; // No need to continue checking if one value is null
-//        }
-//    }
-//    if (!$allNotNull) {
-//        $response['status'] = "error";
-//        $response['message'] = "Please enter all choices fields.";
-//        header("Location: ../../public/index.php?error_message=" . urlencode(json_encode($response)));
-//        exit;
-//    }
+    $allNotNull = true;
+    foreach ($choices as $choiceID) {
+        if (empty($choiceID)) {
+            $allNotNull = false;
+            break; // No need to continue checking if one value is null
+        }
+    }
+    if (!$allNotNull) {
+        $response['status'] = "error";
+        $response['message'] = "Please enter all choices fields.";
+        header("Location: ../../public/index.php?error_message=" . urlencode(json_encode($response)));
+        exit;
+    }
 
     // Validate if correct answer field is numeric.
     if (!is_numeric($correctAnswerNumber)) {

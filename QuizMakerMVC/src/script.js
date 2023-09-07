@@ -200,9 +200,6 @@ function updateForm() {
             newChoiceIDs.push({ value: choiceValue });
         }
     });
-    console.log("Choice IDs:", choiceIDs);
-    console.log("New Choice IDs:", newChoiceIDs);
-
 
     const Data = {
         choiceIDs: choiceIDs
@@ -212,4 +209,41 @@ function updateForm() {
     }
     const hiddenData = document.getElementById("hiddenData");
     hiddenData.setAttribute("value",  JSON.stringify(Data));
+}
+
+function validateSolveQuizForm() {
+    const questionElements = document.querySelectorAll(".question-design");
+
+    for (let i = 0; i < questionElements.length; i++) {
+        const question = questionElements[i];
+        const radios = question.querySelectorAll("input[type=radio]:checked");
+
+        if (radios.length === 0) {
+            alert("Please answer all questions.");
+            return;
+        }
+    }
+
+    // Serialize the form data
+    const formData = $('form').serialize();
+
+    // Perform an AJAX POST request to the server
+    $.ajax({
+        type: 'POST',
+        url: '../Controllers/cont_count_score.php',
+        data: formData,
+        dataType: 'json',
+        success: function (response) {
+            console.log(response);
+
+            if (response.status === "success") {
+                window.location.href = response.header;
+            } else {
+                alert("An error occurred: " + response.message);
+            }
+        },
+        error: function () {
+            alert('An error occurred while submitting the form.');
+        }
+    });
 }

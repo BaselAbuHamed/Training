@@ -63,7 +63,7 @@ function displayQuestionsOnly($pdo, $quizName, $questions, $quiz_id) {
     $name = json_decode($quizName, true);
 
     echo '<div class="container-quiz">';
-    echo '<form method="post" action="../Controllers/cont_count_score.php">';
+    echo '<form method="post" onsubmit="validateSolveQuizForm()">';
     echo '<div class="title">';
     echo '<input type="text" name="quiz-name" value="' . htmlspecialchars($name[0]['quizName']) . '" readonly />';
     echo '<input type="hidden" name="quiz_id" value="' . $quiz_id . '" />';
@@ -89,7 +89,6 @@ function displayQuestionsOnly($pdo, $quizName, $questions, $quiz_id) {
             $choiceName = "answers[" . $questionID . "]";
 
             echo '<div class="choice-input" data-choice="' . $answerID . '">';
-
             echo '<input type="hidden" name="' . $answerID . '" />';
 
             // Check if user_answers session variable is set and if this answer is selected
@@ -98,7 +97,6 @@ function displayQuestionsOnly($pdo, $quizName, $questions, $quiz_id) {
             } else {
                 $checked = '';
             }
-
             echo '<input type="radio" name="' . $choiceName .
                 '" value="' . $answer['answerID'] .
                 '" data-choice="' . $answer['answerID'] . '" ' . $checked . ' />';
@@ -109,7 +107,6 @@ function displayQuestionsOnly($pdo, $quizName, $questions, $quiz_id) {
         echo '</div>';
         echo '</div>';
     }
-
     echo '<div class="submit">';
     echo '<input type="submit" value="Submit" />';
     echo '</div>';

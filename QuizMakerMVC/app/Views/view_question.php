@@ -1,10 +1,10 @@
 <?php
-
-include_once '../Controllers/cont_view_question.php';
-
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
+
+require_once '../Controllers/cont_view_question.php';
+
 
 if (!isset($_SESSION['email'])) {
     header("Location: log_in.php");

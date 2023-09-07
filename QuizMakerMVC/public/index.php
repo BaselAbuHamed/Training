@@ -24,7 +24,7 @@ if (!isset($_SESSION['email'])) {
         <link rel="stylesheet" href="../src/style.css" type="text/css" />
     </head>
     <body>
-        <?php require_once '../app/classes/header.php'; ?>
+        <?php include '../app/classes/header.php'; ?>
         <?php
         if (isset($_GET['error_message'])) {
             $error_message = json_decode(urldecode($_GET['error_message']), true);
@@ -50,7 +50,7 @@ if (!isset($_SESSION['email'])) {
         }
         ?>
 
-        <?php require_once '../app/classes/side_nav.php'; ?>
+        <?php include '../app/classes/side_nav.php'; ?>
 
         <div class="container">
             <div class="tittle">
