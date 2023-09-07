@@ -20,15 +20,12 @@ function insertUser($pdo, $username,$email, $password, $type ) {
     // Prepare the INSERT statement
     $stmt = $pdo->prepare("INSERT INTO user (userName,  email, passward ,user_type ) VALUES (?,?,?,?)");
 
-    // Bind the parameters
     $stmt->bindParam(1, $username, PDO::PARAM_STR);
     $stmt->bindParam(2, $email, PDO::PARAM_STR);
     $encryptedPassword = encryptPassword($password);
     $stmt->bindParam(3, $encryptedPassword, PDO::PARAM_STR);
     $stmt->bindParam(4, $type, PDO::PARAM_STR);
 
-
-    // Execute the statement
     if ($stmt->execute()) {
         return true; // Insert successful
     } else {

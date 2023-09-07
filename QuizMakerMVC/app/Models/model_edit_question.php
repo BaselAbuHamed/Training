@@ -10,15 +10,11 @@ function getAnswerID($pdo, $questionID, $choiceText) {
     $stmt->execute();
 
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
-//    logError($result['answerID']);
-
 
     if ($result !== false && isset($result['answerID'])) {
-
         return (int)$result['answerID'];
     }
-
-    return -1; // Default value if not found or empty result
+    return -1;
 }
 
 //get answer
@@ -34,7 +30,6 @@ function getCorrectAnswerValue($pdo, $questionID, $correctAnswerID) {
     if ($result) {
         return $result['answer'];
     }
-
     return null;
 }
 // To get question details

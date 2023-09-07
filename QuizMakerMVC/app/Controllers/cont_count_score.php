@@ -20,9 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (empty($userAnswers) || count($userAnswers) < count($questions)) {
         $response['status'] = "error";
         $response['message'] = "Please solve all questions.";
-//        $_SESSION['user_answers'] = $userAnswers;
         echo json_encode($response);
-//        header("Location: ../Views/solve_quiz.php?quiz_id=" . $quizID . "&error_message=" . urlencode(json_encode($response)));
         exit;
     }
 
@@ -31,14 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Calculate the score
     $score = calculateScore($pdo, array_keys($questions), $userAnswers);
 
-//    echo '<div class="tittle">';
-//    echo "Your Score: " . $score . "/" . count($questions) . ".";
-//    echo '</div>';
-
-
     saveScore($pdo, $score, $userID, $quizID, array_keys($questions), $userAnswers);
-
-//    unset($_SESSION['user_answers']);
 
     $response['status'] = "success";
     $response['message'] = "Your score: " . $score . "/" . count($questions);

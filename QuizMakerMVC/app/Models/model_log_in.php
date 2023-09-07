@@ -8,10 +8,7 @@ function login($pdo, $emailOrUsername, $password) {
     $stmt = $pdo->prepare("SELECT * FROM user WHERE email = :emailOrUsername OR username = :emailOrUsername");
     $stmt->bindParam(':emailOrUsername', $emailOrUsername);
 
-    // Execute the query
     $stmt->execute();
-
-    // Fetch the user record
     $user = $stmt->fetch();
 
     // Verify the password
@@ -28,8 +25,3 @@ function login($pdo, $emailOrUsername, $password) {
     return false;
 }
 ?>
-
-
-    }
-    return false;
-}

@@ -21,8 +21,6 @@ function updateChoice($pdo, $choiceIDs, $questionID) {
     $stmt = $pdo->prepare($updateFormQuery);
     foreach ($choiceIDs as $choice) {
         $id=array_search($choice, $choiceIDs);
-//        logError( $choice);
-//        logError(array_search($choice, $choiceIDs));
         $stmt->bindParam(':answer', $choice);
         $stmt->bindParam(':questionID', $questionID);
         $stmt->bindParam(':answerID',$id );
@@ -70,8 +68,6 @@ function updateCorrectAnswer($pdo, $questionID, $fieldNumber){
     $choices = getQuestionChoice($pdo, $questionID);
 
     $fieldIndex = $fieldNumber - 1; // Assuming field numbers start from 1
-
-//    error_log(print_r($choices[$fieldIndex], true),3,"error_log.txt");
 
     if (isset($choices[$fieldIndex])) {
         $newCorrectAnswerID = getID($pdo, $questionID, $choices[$fieldIndex]);

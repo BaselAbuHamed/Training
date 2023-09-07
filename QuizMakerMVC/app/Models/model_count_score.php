@@ -2,17 +2,14 @@
 function calculateScore($pdo,$questions,$userAnswers) {
 
     $score = 0;
-
     foreach ($questions as $question) {
         $questionID = $question;
-
         $correctAnswerID = getCorrectAnswerID($pdo, $questionID);
 
         if ($correctAnswerID == $userAnswers[$questionID]) {
             $score++;
         }
     }
-
     return $score;
 }
 

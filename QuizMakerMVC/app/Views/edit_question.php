@@ -45,7 +45,6 @@ if (isset($_SESSION['user_type'])&&$_SESSION['user_type']=="student") {
             $success_message = json_decode(urldecode($_GET['success_message']), true);
             $status = $success_message['status'];
             $message = $success_message['message'];
-            logError(print_r($success_message,true));
             echo '<div class="success-message">';
             echo '<span class="closeBtn" onclick="this.parentElement.style.display=\'none\';">&times;</span>';
             echo htmlspecialchars($message);

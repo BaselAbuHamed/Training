@@ -1,6 +1,4 @@
 <?php
-//include '../classes/error_log.php';
-
 function SelectQuestionByField($pdo, $numberQuestion, $field) {
     $query = "SELECT * FROM question WHERE field = :field ORDER BY RAND() LIMIT :limit";
     $stmt = $pdo->prepare($query);

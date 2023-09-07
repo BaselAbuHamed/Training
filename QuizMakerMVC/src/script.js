@@ -212,16 +212,14 @@ function updateForm() {
 }
 
 function validateSolveQuizForm() {
+    event.preventDefault();
     const questionElements = document.querySelectorAll(".question-design");
+    let totalCheckedRadios = 0;
 
     for (let i = 0; i < questionElements.length; i++) {
         const question = questionElements[i];
         const radios = question.querySelectorAll("input[type=radio]:checked");
-
-        if (radios.length === 0) {
-            alert("Please answer all questions.");
-            return;
-        }
+        totalCheckedRadios += radios.length;
     }
 
     // Serialize the form data
@@ -234,8 +232,6 @@ function validateSolveQuizForm() {
         data: formData,
         dataType: 'json',
         success: function (response) {
-            console.log(response);
-
             if (response.status === "success") {
                 window.location.href = response.header;
             } else {

@@ -95,9 +95,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $choiceIDs = $data['choiceIDs'];
             $newChoiceIDs = $data['newChoiceIDs'];
 
-            logError(print_r($choiceIDs,true));
-            logError(print_r($newChoiceIDs,true));
-
             deleteChoice($pdo, $questionID, $choiceIDs);
             insertChoice($pdo, $questionID, $newChoiceIDs);
         }

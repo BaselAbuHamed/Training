@@ -1,8 +1,6 @@
 <?php
 
-function insertQuestion($pdo,$question,$field,$choices,$correctAnswerNumber,$userID)
-{
-    // Insert question into the 'question' table
+function insertQuestion($pdo,$question,$field,$choices,$correctAnswerNumber,$userID){
     $sql = "INSERT INTO question (question, field,userID) VALUES (:question, :field, :userID)";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':question', $question, PDO::PARAM_STR);

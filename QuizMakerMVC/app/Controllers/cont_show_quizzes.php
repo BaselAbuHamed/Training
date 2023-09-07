@@ -43,17 +43,15 @@ function getHighestScore($quizID) {
 
     // Execute the query
     if ($stmt->execute()) {
-        // Fetch the result
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         // Check if a result was found
         if ($result && isset($result['highest_score'])) {
             return $result['highest_score'];
         } else {
-            return "try attempt quiz"; // No score found for the specified quiz
+            return "try attempt quiz";
         }
     } else {
-        // Handle the error if the query execution fails
         return false;
     }
 }

@@ -7,7 +7,6 @@ require_once '../classes/connect.php';
 require_once '../Models/model_show_attempts.php';
 require_once '../Models/model_edit_question.php';
 
-
 function printAttempts($userScoreID) {
     $pdo = db_connect();
     $attemptsData = getPreviousAttempts($pdo, $userScoreID);

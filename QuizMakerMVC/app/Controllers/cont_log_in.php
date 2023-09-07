@@ -1,5 +1,4 @@
 <?php
-// Include necessary files
 require_once '../classes/connect.php';
 require_once '../Models/model_log_in.php';
 require_once '../classes/error_log.php';

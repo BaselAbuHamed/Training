@@ -6,10 +6,6 @@ if (session_status() == PHP_SESSION_NONE) {
 require_once '../classes/connect.php';
 require_once '../Models/model_sign_up.php';
 
-//// Define variables and set to empty values
-//$username = $email = $password = $confirmPassword = "";
-//$usernameErr = $emailErr = $passwordErr = $confirmPasswordErr = "";
-
 $pdo=db_connect();
 
 // Function to sanitize user input

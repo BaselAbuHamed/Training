@@ -12,24 +12,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if the user is logged in
     if (!isset($_SESSION['userID'])) {
-        // You might want to handle the case where the user is not logged in.
-        // Redirect to a login page or show an error message.
-        exit("User not logged in"); // For demonstration purposes
+        exit("User not logged in");
     }
 
     $userID = $_SESSION['userID'];
     $quizName = isset($_POST["quiz-name"]) ? $_POST["quiz-name"] : null;
     $questions = isset($_POST["questions"]) ? $_POST["questions"] : array();
 
-    // Sanitize and validate inputs here if needed
-
     saveQuiz($pdo, $userID, $quizName, $questions);
 
     $response['status'] = "success";
     $response['message'] = "The question has been added successfully";
-
-    // Log the token (if needed)
-    logError("token: " . $_POST['token']);
 
     // Determine where to redirect based on the token value
     if ($_POST['token'] == "1") {
